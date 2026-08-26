@@ -156,13 +156,12 @@ export default function Home() {
 
   {/* Desktop Navigation */}
   <nav className="hidden items-center gap-1 rounded-full border border-white/10 bg-black/20 p-1.5 backdrop-blur-md md:flex">
- 
-<a
-  href="/services"
-  className="rounded-full px-5 py-2 text-[11px] uppercase tracking-[0.1em] text-white/80 transition-all hover:text-white"
->
-  Services
-</a>
+    <a
+      href="/services"
+      className="rounded-full px-5 py-2 text-[11px] uppercase tracking-[0.1em] text-white/80 transition-all hover:text-white"
+    >
+      Services
+    </a>
 
     <a
       href="#work"
@@ -171,13 +170,12 @@ export default function Home() {
       Pricing
     </a>
 
-<a
-  href="/contact"
-  className="rounded-full bg-white/10 px-5 py-2 text-[11px] uppercase tracking-[0.1em] text-white transition-all hover:bg-white/20"
->
-  Contact
-</a>
-  
+    <a
+      href="/contact"
+      className="rounded-full bg-white/10 px-5 py-2 text-[11px] uppercase tracking-[0.1em] text-white transition-all hover:bg-white/20"
+    >
+      Contact
+    </a>
   </nav>
 
   {/* Mobile / Tablet Menu Button */}
@@ -196,163 +194,103 @@ export default function Home() {
   </button>
 </header>
 
-        {/* =====================================================
-            HERO
-        ====================================================== */}
+{/* =====================================================
+    HERO
+====================================================== */}
 
-        <section
-          className="relative flex min-h-screen w-full flex-col justify-between overflow-hidden bg-[#0e1310] px-6 pb-24 pt-32 [contain:paint] md:px-12"
-          onMouseMove={(event) => {
-            const x = (event.clientX / window.innerWidth - 0.5) * 2;
-            const y = (event.clientY / window.innerHeight - 0.5) * 2;
+<section
+  className="relative flex min-h-screen w-full flex-col justify-between overflow-hidden bg-[#0e1310] px-6 pb-24 pt-32 [contain:paint] md:px-12"
+>
+  {/* Hero image + static overlays */}
+  <div className="pointer-events-none absolute inset-0 overflow-hidden">
+    <img
+      src="/hero-pool.jpg"
+      alt=""
+      loading="eager"
+      fetchPriority="high"
+      decoding="async"
+      className="absolute inset-0 h-full w-full object-cover"
+    />
 
-            const water = document.querySelector(
-              ".hero-water",
-            ) as HTMLElement | null;
+    {/* Dark green overlay */}
+    <div className="absolute inset-0 bg-[#10251f]/32" />
 
-            const lightOne = document.querySelector(
-              ".hero-light-one",
-            ) as HTMLElement | null;
+    {/* Soft central light */}
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.07)_0%,rgba(16,37,31,0.04)_35%,rgba(16,37,31,0.3)_100%)]" />
 
-            const lightTwo = document.querySelector(
-              ".hero-light-two",
-            ) as HTMLElement | null;
+    {/* Bottom fade */}
+    <div className="absolute inset-x-0 bottom-0 h-96 bg-gradient-to-t from-[#0e1310] via-[#0e1310]/80 to-transparent" />
+  </div>
 
-            if (water) {
-              water.style.setProperty("--mouse-x", `${x * 0.3}px`);
-              water.style.setProperty("--mouse-y", `${y * 0.3}px`);
-            }
+  {/* Hero content */}
+  <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center">
+    <img
+      src="/logo.png"
+      alt="Premier Pools & Gardens"
+      loading="eager"
+      fetchPriority="high"
+      decoding="async"
+      className="w-[280px] object-contain md:w-[420px] lg:w-[500px]"
+    />
 
-            if (lightOne) {
-              lightOne.style.setProperty("--mouse-x", `${x * -8}px`);
-              lightOne.style.setProperty("--mouse-y", `${y * -6}px`);
-            }
+    <div className="mt-10">
+      <p
+        className={`${cormorant.className} text-2xl font-medium tracking-[0.03em] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)] md:text-3xl`}
+      >
+        Pool & Garden Maintenance
+      </p>
 
-            if (lightTwo) {
-              lightTwo.style.setProperty("--mouse-x", `${x * 6}px`);
-              lightTwo.style.setProperty("--mouse-y", `${y * 4}px`);
-            }
-          }}
-        >
-          <div className="pointer-events-none absolute inset-0 overflow-hidden">
-            <img
-              src="/hero-pool.jpg"
-              alt=""
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
-              className="hero-water absolute inset-0 h-full w-full object-cover [transform:translateZ(0)]"
-            />
+      <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.22em] text-white/85 drop-shadow-[0_1px_5px_rgba(0,0,0,0.4)] md:text-xs">
+        Tarn-et-Garonne · Gers · South West France
+      </p>
+    </div>
+  </div>
 
-            <div className="absolute inset-0 bg-[#10251f]/32" />
+  {/* Bottom information */}
+  <div className="relative z-10 flex items-end justify-between pt-12">
+    <p className="text-[9px] font-medium uppercase tracking-[0.2em] text-white/70 md:text-[10px]">
+      Private Pools · Estates · Holiday Homes
+    </p>
 
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.07)_0%,rgba(16,37,31,0.04)_35%,rgba(16,37,31,0.3)_100%)]" />
+    <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-white/80">
+      <span className="hidden sm:inline">Scroll to explore</span>
 
-            <div className="absolute inset-x-0 bottom-0 h-96 bg-gradient-to-t from-[#0e1310] via-[#0e1310]/80 to-transparent" />
+      <span className="hero-scroll-line h-8 w-px bg-white/60" />
+    </div>
+  </div>
 
-            <div className="hero-light-one absolute -left-[40%] top-[-30%] h-[160%] w-[38%] rotate-[18deg] bg-white/[0.075] blur-[70px] [transform:translateZ(0)]" />
+  {/* Curved bottom edge */}
+  <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 leading-none">
+    <svg
+      className="relative block h-12 w-full text-[#0e1310] md:h-20"
+      viewBox="0 0 1200 120"
+      preserveAspectRatio="none"
+      fill="currentColor"
+    >
+      <path d="M0,0 C150,90 350,-40 500,50 C650,140 900,10 1200,40 L1200,120 L0,120 Z" />
+    </svg>
+  </div>
 
-            <div className="hero-light-two absolute -right-[35%] top-[-20%] h-[140%] w-[28%] -rotate-[22deg] bg-[#dce8dc]/[0.045] blur-[90px] [transform:translateZ(0)]" />
+  <style jsx>{`
+    .hero-scroll-line {
+      animation: scrollLine 2.8s ease-in-out infinite;
+      transform-origin: top center;
+    }
 
-            <div className="absolute inset-0 opacity-[0.12]">
-              <div className="absolute left-[12%] top-[20%] h-24 w-56 rotate-[18deg] rounded-full bg-white/10 blur-3xl" />
-              <div className="absolute right-[18%] top-[58%] h-20 w-72 -rotate-[15deg] rounded-full bg-white/[0.08] blur-3xl" />
-              <div className="absolute bottom-[18%] left-[38%] h-16 w-64 rotate-[8deg] rounded-full bg-white/[0.06] blur-3xl" />
-            </div>
+    @keyframes scrollLine {
+      0%,
+      100% {
+        transform: scaleY(0.55);
+        opacity: 0.45;
+      }
 
-            <div className="absolute inset-0">
-              <span className="absolute left-[24%] top-[28%] h-1 w-8 rotate-[20deg] rounded-full bg-white/20 blur-[2px]" />
-              <span className="absolute left-[68%] top-[34%] h-1 w-12 -rotate-[14deg] rounded-full bg-white/[0.14] blur-[2px]" />
-              <span className="absolute left-[52%] top-[72%] h-1 w-10 rotate-[12deg] rounded-full bg-white/[0.12] blur-[2px]" />
-              <span className="absolute left-[78%] top-[68%] h-1 w-7 -rotate-[20deg] rounded-full bg-white/[0.16] blur-[2px]" />
-            </div>
-          </div>
-
-          <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center">
-            <img
-              src="/logo.png"
-              alt="Premier Pools & Gardens"
-              className="w-[280px] object-contain md:w-[420px] lg:w-[500px]"
-            />
-
-            <div className="mt-10">
-              <p
-                className={`${cormorant.className} text-2xl font-medium tracking-[0.03em] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)] md:text-3xl`}
-              >
-                Pool & Garden Maintenance
-              </p>
-
-              <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.22em] text-white/85 drop-shadow-[0_1px_5px_rgba(0,0,0,0.4)] md:text-xs">
-                Tarn-et-Garonne · Gers · South West France
-              </p>
-            </div>
-          </div>
-
-          <div className="relative z-10 flex items-end justify-between pt-12">
-            <p className="text-[9px] font-medium uppercase tracking-[0.2em] text-white/70 md:text-[10px]">
-              Private Pools · Estates · Holiday Homes
-            </p>
-
-            <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-white/80">
-              <span className="hidden sm:inline">Scroll to explore</span>
-              <span className="hero-scroll-line h-8 w-px bg-white/60" />
-            </div>
-          </div>
-
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 leading-none">
-            <svg
-              className="relative block h-12 w-full text-[#0e1310] md:h-20"
-              viewBox="0 0 1200 120"
-              preserveAspectRatio="none"
-              fill="currentColor"
-            >
-              <path d="M0,0 C150,90 350,-40 500,50 C650,140 900,10 1200,40 L1200,120 L0,120 Z" />
-            </svg>
-          </div>
-
-          <style jsx>{`
-            .hero-water {
-              --mouse-x: 0px;
-              --mouse-y: 0px;
-              transform: translate3d(var(--mouse-x), var(--mouse-y), 0);
-              will-change: transform;
-            }
-
-            .hero-light-one {
-              --mouse-x: 0px;
-              --mouse-y: 0px;
-              transform: translate3d(var(--mouse-x), var(--mouse-y), 0)
-                rotate(18deg);
-              will-change: transform;
-            }
-
-            .hero-light-two {
-              --mouse-x: 0px;
-              --mouse-y: 0px;
-              transform: translate3d(var(--mouse-x), var(--mouse-y), 0)
-                rotate(-22deg);
-              will-change: transform;
-            }
-
-            .hero-scroll-line {
-              animation: scrollLine 2.8s ease-in-out infinite;
-              transform-origin: top center;
-            }
-
-            @keyframes scrollLine {
-              0%,
-              100% {
-                transform: scaleY(0.55);
-                opacity: 0.45;
-              }
-
-              50% {
-                transform: scaleY(1);
-                opacity: 1;
-              }
-            }
-          `}</style>
-        </section>
+      50% {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    }
+  `}</style>
+</section>
 
        {/* =====================================================
     ABOUT
