@@ -12,7 +12,23 @@ const sans =
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const pageRef = useRef<HTMLDivElement>(null);
+
+  const testimonials = [
+    {
+      quote: "“Reliable, professional and completely trustworthy. Our property has never looked better.”",
+      author: "Villa Owner, Valbonne",
+    },
+    {
+      quote: "“Exceptional pool care and attention to detail. We never have to worry about a thing while away.”",
+      author: "Homeowner, Mougins",
+    },
+    {
+      quote: "“The garden maintenance and general oversight are top-tier. Highly recommended for any Côte d’Azur villa.”",
+      author: "Estate Owner, Cannes",
+    },
+  ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -181,7 +197,7 @@ export default function Home() {
       </header>
 
       {/* HERO SECTION */}
-      <section className="relative flex min-h-[92vh] w-full flex-col justify-between overflow-hidden px-6 pb-16 pt-20 md:px-12 md:pb-24 md:pt-28">
+      <section className="relative flex min-h-[92vh] w-full flex-col justify-between overflow-hidden px-6 pb-8 pt-12 md:px-12 md:pb-24 md:pt-28">
         <div className="absolute inset-0 overflow-hidden">
           <video
             autoPlay
@@ -196,16 +212,16 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-[#16221b]/70" />
         </div>
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl my-auto text-center md:text-left">
+        <div className="relative z-10 mx-auto w-full max-w-7xl my-auto text-center md:text-left py-6">
           <p className="text-[11px] font-extrabold uppercase tracking-[0.25em] text-[#71efb3] drop-shadow-md">
             Your property, our priority
           </p>
-          <h1 className="mt-4 font-serif text-4xl font-normal leading-[1.08] tracking-tight text-white drop-shadow-lg sm:text-6xl md:text-7xl lg:max-w-4xl">
+          <h1 className="mt-4 font-serif text-3xl font-normal leading-[1.08] tracking-tight text-white drop-shadow-lg sm:text-6xl md:text-7xl lg:max-w-4xl">
             Complete Property Care <br className="hidden sm:inline" />
             on the Côte d’Azur
           </h1>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs font-extrabold uppercase tracking-[0.18em] text-[#a4f5ce] drop-shadow-md md:justify-start">
+          <div className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs font-extrabold uppercase tracking-[0.18em] text-[#a4f5ce] drop-shadow-md md:justify-start">
             <span>Pool</span>
             <span className="text-white/50">·</span>
             <span>Garden</span>
@@ -215,14 +231,14 @@ export default function Home() {
             <span>Security</span>
           </div>
 
-          <p className="mt-3 text-sm font-bold text-white/90 drop-shadow">
+          <p className="mt-3 text-xs sm:text-sm font-bold text-white/90 drop-shadow">
             Year-round care for villas, second homes and primary residences.
           </p>
 
-          <div className="mt-8">
+          <div className="mt-6">
             <a
               href="#services"
-              className="inline-flex items-center gap-3 rounded-full bg-white px-7 py-3.5 text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#16221b] transition-all hover:bg-[#eaf4f0] shadow-xl"
+              className="inline-flex items-center gap-3 rounded-full bg-white px-6 py-3 text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#16221b] transition-all hover:bg-[#eaf4f0] shadow-xl"
             >
               Discover our services
               <span>→</span>
@@ -230,27 +246,23 @@ export default function Home() {
           </div>
         </div>
 
-        {/* HERO ICON BAR */}
-        <div className="relative z-10 mx-auto mt-16 mb-4 grid w-full max-w-7xl grid-cols-2 gap-4 rounded-2xl bg-white/95 p-4 text-[#16221b] backdrop-blur-md sm:grid-cols-5 md:p-6 shadow-2xl border border-white/40">
-          <div className="flex flex-col items-center justify-center text-center p-2">
-            <span className="text-xl mb-1">🌊</span>
-            <span className="text-[10px] font-extrabold uppercase tracking-[0.15em]">Pool Care</span>
+        {/* HERO ICON BAR (4 items, smaller & flatter on phone) */}
+        <div className="relative z-10 mx-auto mt-6 mb-2 grid w-full max-w-7xl grid-cols-4 gap-1.5 sm:gap-4 rounded-xl sm:rounded-2xl bg-white/95 px-2 py-2.5 sm:p-4 text-[#16221b] backdrop-blur-md md:p-6 shadow-2xl border border-white/40">
+          <div className="flex flex-col items-center justify-center text-center px-1">
+            <span className="text-sm sm:text-xl mb-0.5 sm:mb-1">🌊</span>
+            <span className="text-[8px] sm:text-[10px] font-extrabold uppercase tracking-[0.1em] sm:tracking-[0.15em] leading-tight">Pool Care</span>
           </div>
-          <div className="flex flex-col items-center justify-center text-center p-2 border-l border-[#16221b]/10">
-            <span className="text-xl mb-1">🌿</span>
-            <span className="text-[10px] font-extrabold uppercase tracking-[0.15em]">Garden Maintenance</span>
+          <div className="flex flex-col items-center justify-center text-center px-1 border-l border-[#16221b]/10">
+            <span className="text-sm sm:text-xl mb-0.5 sm:mb-1">🌿</span>
+            <span className="text-[8px] sm:text-[10px] font-extrabold uppercase tracking-[0.1em] sm:tracking-[0.15em] leading-tight">Garden Care</span>
           </div>
-          <div className="flex flex-col items-center justify-center text-center p-2 sm:border-l border-[#16221b]/10">
-            <span className="text-xl mb-1">🏡</span>
-            <span className="text-[10px] font-extrabold uppercase tracking-[0.15em]">Property Management</span>
+          <div className="flex flex-col items-center justify-center text-center px-1 border-l border-[#16221b]/10">
+            <span className="text-sm sm:text-xl mb-0.5 sm:mb-1">🏡</span>
+            <span className="text-[8px] sm:text-[10px] font-extrabold uppercase tracking-[0.1em] sm:tracking-[0.15em] leading-tight">Property</span>
           </div>
-          <div className="flex flex-col items-center justify-center text-center p-2 border-l border-[#16221b]/10">
-            <span className="text-xl mb-1">🔒</span>
-            <span className="text-[10px] font-extrabold uppercase tracking-[0.15em]">Security & Keyholding</span>
-          </div>
-          <div className="col-span-2 sm:col-span-1 flex flex-col items-center justify-center text-center p-2 border-t sm:border-t-0 sm:border-l border-[#16221b]/10">
-            <span className="text-xl mb-1">✨</span>
-            <span className="text-[10px] font-extrabold uppercase tracking-[0.15em]">Peace of Mind</span>
+          <div className="flex flex-col items-center justify-center text-center px-1 border-l border-[#16221b]/10">
+            <span className="text-sm sm:text-xl mb-0.5 sm:mb-1">✨</span>
+            <span className="text-[8px] sm:text-[10px] font-extrabold uppercase tracking-[0.1em] sm:tracking-[0.15em] leading-tight">Peace of Mind</span>
           </div>
         </div>
       </section>
@@ -436,17 +448,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIAL BANNER */}
+      {/* TESTIMONIAL SCROLLER BANNER */}
       <section className="bg-[#c5e6d4] px-6 py-16 md:px-12 md:py-20 border-t border-b border-[#aed9c4]">
         <div className="mx-auto max-w-5xl grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-center">
           <div>
-            <blockquote className="font-serif text-2xl italic leading-relaxed text-[#12241b] sm:text-3xl">
-              “Reliable, professional and completely trustworthy. Our property has never looked better.”
-            </blockquote>
-            <p className="mt-4 text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#3b6650]">
-              Villa Owner, Valbonne
-            </p>
+            <div className="min-h-[110px] sm:min-h-[90px] flex flex-col justify-center">
+              <blockquote className="font-serif text-xl italic leading-relaxed text-[#12241b] sm:text-3xl transition-all duration-300">
+                {testimonials[currentTestimonial].quote}
+              </blockquote>
+              <p className="mt-3 text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#3b6650]">
+                {testimonials[currentTestimonial].author}
+              </p>
+            </div>
+
+            {/* Scroller Dots / Navigation */}
+            <div className="mt-6 flex items-center gap-3">
+              {testimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentTestimonial(idx)}
+                  aria-label={`Go to testimonial ${idx + 1}`}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    currentTestimonial === idx
+                      ? "w-8 bg-[#12241b]"
+                      : "w-2.5 bg-[#12241b]/20 hover:bg-[#12241b]/40"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
+
           <div className="rounded-2xl bg-[#daf2e7] p-6 border border-[#aed9c4] flex flex-col justify-center shadow-sm">
             <div className="flex items-center gap-2 text-[#3b6650] text-sm mb-2">🌿</div>
             <h4 className="text-xs font-extrabold uppercase tracking-[0.15em] text-[#12241b]">
