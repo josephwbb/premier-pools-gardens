@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,271 +12,10 @@ const sans =
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-
   const pageRef = useRef<HTMLDivElement>(null);
-  const heroRef = useRef<HTMLElement>(null);
-  const introRef = useRef<HTMLElement>(null);
-  const servicesRef = useRef<HTMLElement>(null);
-  const standardRef = useRef<HTMLElement>(null);
-  const pricingRef = useRef<HTMLElement>(null);
-  const contactRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const hero = heroRef.current;
-
-      if (hero) {
-        gsap.from(".hero-logo", {
-          opacity: 0,
-          scale: 0.96,
-          duration: 1.2,
-          delay: 0.15,
-          ease: "power3.out",
-        });
-
-        gsap.from(".hero-copy", {
-          opacity: 0,
-          y: 18,
-          duration: 0.8,
-          delay: 0.5,
-          ease: "power3.out",
-        });
-
-        gsap.from(".hero-bottom", {
-          opacity: 0,
-          y: 15,
-          duration: 0.8,
-          delay: 0.65,
-          ease: "power3.out",
-        });
-
-        gsap.to(".hero-scroll-line", {
-          scaleY: 0.5,
-          opacity: 0.4,
-          duration: 1.5,
-          repeat: -1,
-          yoyo: true,
-          ease: "power1.inOut",
-        });
-      }
-
-      if (introRef.current) {
-        gsap.from(".intro-eyebrow", {
-          opacity: 0,
-          y: 20,
-          duration: 0.7,
-          scrollTrigger: {
-            trigger: introRef.current,
-            start: "top 78%",
-          },
-        });
-
-        gsap.from(".intro-line", {
-          scaleX: 0,
-          transformOrigin: "left center",
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: introRef.current,
-            start: "top 72%",
-          },
-        });
-
-        gsap.from(".intro-heading", {
-          opacity: 0,
-          y: 70,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: introRef.current,
-            start: "top 68%",
-          },
-        });
-
-        gsap.from(".intro-copy", {
-          opacity: 0,
-          y: 30,
-          duration: 0.8,
-          delay: 0.15,
-          scrollTrigger: {
-            trigger: introRef.current,
-            start: "top 58%",
-          },
-        });
-
-        gsap.to(".intro-image-inner", {
-          yPercent: -8,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".intro-image",
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1,
-          },
-        });
-      }
-
-      if (servicesRef.current) {
-        gsap.from(".services-eyebrow", {
-          opacity: 0,
-          y: 20,
-          duration: 0.7,
-          scrollTrigger: {
-            trigger: servicesRef.current,
-            start: "top 78%",
-          },
-        });
-
-        gsap.from(".services-heading", {
-          opacity: 0,
-          y: 60,
-          duration: 0.9,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: servicesRef.current,
-            start: "top 70%",
-          },
-        });
-
-        gsap.from(".service-card", {
-          opacity: 0,
-          y: 80,
-          stagger: 0.16,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: servicesRef.current,
-            start: "top 58%",
-          },
-        });
-
-        gsap.utils.toArray<HTMLElement>(".service-image").forEach((image) => {
-          gsap.to(image, {
-            yPercent: 8,
-            scale: 1.05,
-            ease: "none",
-            scrollTrigger: {
-              trigger: image.closest(".service-card"),
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 1.2,
-            },
-          });
-        });
-
-        gsap.from(".service-footer", {
-          opacity: 0,
-          y: 20,
-          duration: 0.7,
-          scrollTrigger: {
-            trigger: ".service-footer",
-            start: "top 85%",
-          },
-        });
-      }
-
-      if (standardRef.current) {
-        gsap.from(".standard-number", {
-          opacity: 0,
-          y: 30,
-          duration: 0.7,
-          scrollTrigger: {
-            trigger: standardRef.current,
-            start: "top 78%",
-          },
-        });
-
-        gsap.from(".standard-heading", {
-          opacity: 0,
-          y: 80,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: standardRef.current,
-            start: "top 68%",
-          },
-        });
-
-        gsap.to(".standard-image", {
-          yPercent: -10,
-          ease: "none",
-          scrollTrigger: {
-            trigger: standardRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1.2,
-          },
-        });
-
-        gsap.from(".standard-detail", {
-          opacity: 0,
-          x: 35,
-          stagger: 0.12,
-          duration: 0.7,
-          scrollTrigger: {
-            trigger: standardRef.current,
-            start: "top 55%",
-          },
-        });
-      }
-
-      if (pricingRef.current) {
-        gsap.from(".pricing-heading", {
-          opacity: 0,
-          y: 60,
-          duration: 0.9,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: pricingRef.current,
-            start: "top 72%",
-          },
-        });
-
-        gsap.from(".pricing-card", {
-          opacity: 0,
-          y: 70,
-          stagger: 0.15,
-          duration: 0.9,
-          scrollTrigger: {
-            trigger: pricingRef.current,
-            start: "top 60%",
-          },
-        });
-      }
-
-      if (contactRef.current) {
-        gsap.from(".contact-eyebrow", {
-          opacity: 0,
-          y: 20,
-          duration: 0.7,
-          scrollTrigger: {
-            trigger: contactRef.current,
-            start: "top 78%",
-          },
-        });
-
-        gsap.from(".contact-heading", {
-          opacity: 0,
-          y: 80,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: contactRef.current,
-            start: "top 70%",
-          },
-        });
-
-        gsap.from(".contact-actions", {
-          opacity: 0,
-          y: 35,
-          duration: 0.8,
-          scrollTrigger: {
-            trigger: contactRef.current,
-            start: "top 60%",
-          },
-        });
-      }
-
       ScrollTrigger.refresh();
     }, pageRef);
 
@@ -286,24 +26,21 @@ export default function Home() {
     <main
       ref={pageRef}
       style={{ fontFamily: sans }}
-      className="min-h-screen overflow-x-hidden bg-[#0d1612] text-[#16221b] selection:bg-[#203427] selection:text-white"
+      className="min-h-screen overflow-x-hidden bg-[#eaf4f0] text-[#16221b] selection:bg-[#203427] selection:text-white"
     >
+      {/* MOBILE MENU */}
       {menuOpen && (
         <div className="fixed inset-0 z-[100] lg:hidden">
           <div
-            className="absolute inset-0 bg-black/20 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/30 backdrop-blur-sm"
             onClick={() => setMenuOpen(false)}
           />
 
-          <div className="absolute right-0 top-0 flex min-h-screen w-[88%] max-w-md flex-col bg-[#f4f6f2] px-6 py-6 shadow-2xl">
+          <div className="absolute right-0 top-0 flex min-h-screen w-[88%] max-w-md flex-col bg-[#eef4f1] px-6 py-6 text-[#16221b] shadow-2xl">
             <div className="flex items-center justify-between border-b border-[#16221b]/10 pb-6">
-              <a
-                href="/"
-                onClick={() => setMenuOpen(false)}
-                className="text-[10px] font-extrabold uppercase tracking-[0.18em]"
-              >
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.18em]">
                 Premier Pools & Gardens
-              </a>
+              </span>
 
               <button
                 type="button"
@@ -319,469 +56,379 @@ export default function Home() {
             </div>
 
             <nav className="mt-12 flex flex-col">
-              <a
-                href="/services"
+              <Link
+                href="/"
                 onClick={() => setMenuOpen(false)}
-                className="border-b border-[#16221b]/10 py-5 text-4xl font-extrabold tracking-[-0.05em]"
+                className="border-b border-[#16221b]/10 py-5 text-3xl font-extrabold tracking-[-0.05em]"
               >
-                Services
-              </a>
-
+                Home
+              </Link>
               <a
-                href="/#pricing"
+                href="#services"
                 onClick={() => setMenuOpen(false)}
-                className="border-b border-[#16221b]/10 py-5 text-4xl font-extrabold tracking-[-0.05em]"
+                className="border-b border-[#16221b]/10 py-5 text-3xl font-extrabold tracking-[-0.05em]"
               >
-                Pricing
+                Our Services
               </a>
-
               <a
-                href="/contact"
+                href="#why-choose-us"
                 onClick={() => setMenuOpen(false)}
-                className="border-b border-[#16221b]/10 py-5 text-4xl font-extrabold tracking-[-0.05em]"
+                className="border-b border-[#16221b]/10 py-5 text-3xl font-extrabold tracking-[-0.05em]"
               >
-                Contact
+                Why Choose Us
               </a>
+              <a
+                href="#areas"
+                onClick={() => setMenuOpen(false)}
+                className="border-b border-[#16221b]/10 py-5 text-3xl font-extrabold tracking-[-0.05em]"
+              >
+                Areas We Cover
+              </a>
+              <Link
+                href="/enquire"
+                onClick={() => setMenuOpen(false)}
+                className="border-b border-[#16221b]/10 py-5 text-3xl font-extrabold tracking-[-0.05em]"
+              >
+                Enquire
+              </Link>
             </nav>
 
-            <div className="mt-auto border-t border-[#16221b]/10 pt-6">
-              <p className="text-[9px] font-extrabold uppercase tracking-[0.18em] text-[#6e7d74]">
-                Pool & Garden Maintenance
-              </p>
-
-              <p className="mt-2 text-[9px] font-bold uppercase tracking-[0.16em] text-[#8e9a93]">
-                South West France
-              </p>
-
-              <div className="mt-5 flex gap-2">
-                <a
-                  href="mailto:webbhuw@gmail.com"
-                  aria-label="Email"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#16221b]/15 text-sm"
-                >
-                  ✉
-                </a>
-
-                <a
-                  href="https://wa.me/447591284463"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="WhatsApp"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#16221b]/15 text-[9px] font-extrabold"
-                >
-                  WA
-                </a>
-
-                <a
-                  href="https://instagram.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#16221b]/15"
-                >
-                  ◎
-                </a>
-              </div>
+            <div className="mt-auto pt-6">
+              <Link
+                href="/enquire"
+                onClick={() => setMenuOpen(false)}
+                className="block w-full rounded-full bg-[#16221b] py-4 text-center text-xs font-extrabold uppercase tracking-[0.15em] text-white"
+              >
+                Enquire
+              </Link>
             </div>
           </div>
         </div>
       )}
 
-      <header className="absolute left-0 right-0 top-0 z-50 flex items-center justify-between px-6 py-7 md:px-12 md:py-8">
-        <a
-          href="/"
-          className="text-xs font-semibold uppercase tracking-[0.2em] text-white drop-shadow-sm transition-opacity hover:opacity-75"
-        >
-          Premier Pools & Gardens
-        </a>
-
-        <nav className="hidden items-center gap-1 rounded-full border border-white/10 bg-black/20 p-1.5 backdrop-blur-md lg:flex">
-          <a
-            href="/services"
-            className="rounded-full px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-white/80 transition-all hover:bg-white/10 hover:text-white"
-          >
-            Services
-          </a>
-
-          <a
-            href="/#pricing"
-            className="rounded-full px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-white/80 transition-all hover:bg-white/10 hover:text-white"
-          >
-            Pricing
-          </a>
-
-          <a
-            href="/contact"
-            className="rounded-full bg-white px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-[#1b2b21] transition-all hover:bg-[#f0f4ef]"
-          >
-            Contact
-          </a>
-        </nav>
-
-        <button
-          type="button"
-          onClick={() => setMenuOpen(true)}
-          aria-label="Open navigation menu"
-          className="flex items-center gap-2 rounded-full border border-white/15 bg-black/25 px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-md lg:hidden"
-        >
-          Menu
-
-          <span className="flex flex-col gap-[3px]">
-            <span className="block h-px w-3 bg-white/80" />
-            <span className="block h-px w-3 bg-white/80" />
-          </span>
-        </button>
-      </header>
-
-      {/* HERO */}
-
-      <section
-        ref={heroRef}
-        className="relative flex min-h-screen w-full flex-col justify-between overflow-hidden px-6 pb-24 pt-32 [contain:paint] md:px-12"
-      >
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            poster="/hero-pool.jpg"
-            className="absolute inset-0 h-full w-full object-cover"
-          >
-            <source src="/hero-video.mp4" type="video/mp4" />
-          </video>
-        </div>
-
-        <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center">
+      {/* HEADER */}
+      <header className="sticky top-0 z-50 flex items-center justify-between bg-white px-6 py-4 shadow-sm md:px-12 md:py-5 border-b border-[#16221b]/10">
+        <Link href="/" className="flex items-center gap-3">
           <img
             src="/logo.png"
             alt="Premier Pools & Gardens"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            className="hero-logo w-[280px] object-contain drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)] md:w-[420px] lg:w-[500px]"
+            className="h-9 w-auto object-contain"
           />
-
-          <div className="hero-copy mt-10">
-            <p className="font-serif text-2xl font-semibold tracking-[0.03em] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)] md:text-3xl">
-              Pool & Garden Maintenance
-            </p>
-
-            <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.22em] text-white/90 drop-shadow-[0_1px_5px_rgba(0,0,0,0.4)] md:text-xs">
-              Tarn-et-Garonne · Gers · South West France
-            </p>
+          <div className="hidden flex-col sm:flex">
+            <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#16221b]">
+              Premier
+            </span>
+            <span className="text-[8px] font-bold uppercase tracking-[0.16em] text-[#486b58]">
+              Pools & Gardens
+            </span>
           </div>
+        </Link>
+
+        <nav className="hidden items-center gap-8 lg:flex">
+          <Link
+            href="/"
+            className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#16221b] hover:text-[#486b58]"
+          >
+            Home
+          </Link>
+          <a
+            href="#services"
+            className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#16221b]/80 hover:text-[#16221b]"
+          >
+            Our Services
+          </a>
+          <a
+            href="#why-choose-us"
+            className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#16221b]/80 hover:text-[#16221b]"
+          >
+            Why Choose Us
+          </a>
+          <a
+            href="#areas"
+            className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#16221b]/80 hover:text-[#16221b]"
+          >
+            Areas We Cover
+          </a>
+          <Link
+            href="/enquire"
+            className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#16221b]/80 hover:text-[#16221b]"
+          >
+            Enquire
+          </Link>
+        </nav>
+
+        <div className="flex items-center gap-3">
+          <Link
+            href="/enquire"
+            className="hidden rounded-full bg-[#16221b] px-6 py-2.5 text-[11px] font-extrabold uppercase tracking-[0.15em] text-white transition-all hover:bg-[#2c4c3b] sm:inline-block"
+          >
+            Enquire
+          </Link>
+
+          <button
+            type="button"
+            onClick={() => setMenuOpen(true)}
+            aria-label="Open navigation menu"
+            className="flex items-center gap-2 rounded-full border border-[#16221b]/15 bg-[#eaf4f0]/60 px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#16221b] backdrop-blur-md lg:hidden"
+          >
+            Menu
+            <span className="flex flex-col gap-[3px]">
+              <span className="block h-px w-3 bg-[#16221b]" />
+              <span className="block h-px w-3 bg-[#16221b]" />
+            </span>
+          </button>
+        </div>
+      </header>
+
+      {/* HERO SECTION */}
+      <section className="relative flex min-h-[92vh] w-full flex-col justify-between overflow-hidden px-6 pb-16 pt-20 md:px-12 md:pb-24 md:pt-28">
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover"
+          >
+            <source src="/poolgardencleanvideo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-[#16221b]/70" />
         </div>
 
-        <div className="hero-bottom relative z-10 flex items-end justify-between pt-12">
-          <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/80 md:text-[10px]">
-            Private Pools · Estates · Holiday Homes
+        <div className="relative z-10 mx-auto w-full max-w-7xl my-auto text-center md:text-left">
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.25em] text-[#71efb3] drop-shadow-md">
+            Your property, our priority
+          </p>
+          <h1 className="mt-4 font-serif text-4xl font-normal leading-[1.08] tracking-tight text-white drop-shadow-lg sm:text-6xl md:text-7xl lg:max-w-4xl">
+            Complete Property Care <br className="hidden sm:inline" />
+            on the Côte d’Azur
+          </h1>
+
+          <div className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs font-extrabold uppercase tracking-[0.18em] text-[#a4f5ce] drop-shadow-md md:justify-start">
+            <span>Pool</span>
+            <span className="text-white/50">·</span>
+            <span>Garden</span>
+            <span className="text-white/50">·</span>
+            <span>Property</span>
+            <span className="text-white/50">·</span>
+            <span>Security</span>
+          </div>
+
+          <p className="mt-3 text-sm font-bold text-white/90 drop-shadow">
+            Year-round care for villas, second homes and primary residences.
           </p>
 
-          <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-white/90">
-            <span className="hidden sm:inline">Scroll to explore</span>
-
-            <span className="hero-scroll-line h-8 w-px bg-white/70" />
-          </div>
-        </div>
-      </section>
-
-      {/* INTRO */}
-
-      <section
-        ref={introRef}
-        className="relative overflow-hidden bg-[#f3f5ef] px-6 py-24 md:px-12 md:py-32"
-      >
-        <div className="mx-auto max-w-7xl">
-          <div className="intro-line mb-7 h-px w-full bg-[#16221b]/15" />
-
-          <div className="intro-eyebrow flex items-center justify-between">
-            <p className="text-[9px] font-extrabold uppercase tracking-[0.2em] text-[#6e7d74]">
-              Premier Pools & Gardens
-            </p>
-
-            <p className="hidden text-[9px] font-extrabold uppercase tracking-[0.2em] text-[#8e9a93] sm:block">
-              Tarn-et-Garonne · Gers
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-10 lg:grid-cols-[1.35fr_0.65fr] lg:items-end">
-            <h2
-              className="intro-heading max-w-6xl text-[13vw] font-extrabold leading-[0.84] tracking-[-0.07em] text-[#16221b] md:text-[8vw]"
-              style={{ fontFamily: sans }}
-            >
-              Pool & garden
-              <br />
-              <span className="text-[#688273]">care.</span>
-            </h2>
-
-            <div className="intro-copy max-w-sm">
-              <p className="text-sm font-bold leading-6 text-[#425247] md:text-base">
-                Professional pool and garden care for private properties,
-                holiday homes and estates.
-              </p>
-
-              <a
-                href="/services"
-                className="mt-7 inline-flex items-center gap-4 text-[9px] font-extrabold uppercase tracking-[0.18em] text-[#16221b] transition-all hover:gap-6"
-              >
-                Explore services
-                <span>↗</span>
-              </a>
-            </div>
-          </div>
-
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
-            <div className="intro-image overflow-hidden rounded-[24px]">
-              <img
-                src="/aboutme1.jpg"
-                alt="Premier Pools & Gardens"
-                className="intro-image-inner h-[360px] w-full scale-[1.08] object-cover object-center md:h-[460px]"
-              />
-            </div>
-
-            <div className="intro-image overflow-hidden rounded-[24px]">
-              <img
-                src="/aboutme2.jpg"
-                alt="Premier Pools & Gardens"
-                className="intro-image-inner h-[360px] w-full scale-[1.08] object-cover object-center md:h-[460px]"
-              />
-            </div>
-
-            <div className="intro-image overflow-hidden rounded-[24px]">
-              <img
-                src="/aboutme3.jpg"
-                alt="Premier Pools & Gardens"
-                className="intro-image-inner h-[360px] w-full scale-[1.08] object-cover object-center md:h-[460px]"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES */}
-
-      <section
-        ref={servicesRef}
-        className="relative overflow-hidden bg-[#e8ede7] px-6 py-24 md:px-12 md:py-32"
-      >
-        <div className="mx-auto max-w-7xl">
-          <div className="services-eyebrow flex items-center justify-between">
-            <p className="text-[9px] font-extrabold uppercase tracking-[0.2em] text-[#627368]">
-              What we do
-            </p>
-
-            <p className="text-[9px] font-extrabold uppercase tracking-[0.2em] text-[#84938a]">
-              01 — 02
-            </p>
-          </div>
-
-          <div className="mt-8 grid gap-6 md:grid-cols-[1fr_0.45fr] md:items-end">
-            <h2
-              className="services-heading text-[12vw] font-extrabold leading-[0.84] tracking-[-0.07em] text-[#16221b] md:text-[7.5vw]"
-              style={{ fontFamily: sans }}
-            >
-              Our services.
-            </h2>
-
-            <p className="max-w-xs text-sm font-bold leading-6 text-[#4e5e54]">
-              Simple, consistent care.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-5 lg:grid-cols-2">
-            {/* POOL VIDEO CARD */}
-
+          <div className="mt-8">
             <a
-              href="/services"
-              className="service-card group relative min-h-[520px] overflow-hidden rounded-[28px] bg-[#1a2e22] text-white"
+              href="#services"
+              className="inline-flex items-center gap-3 rounded-full bg-white px-7 py-3.5 text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#16221b] transition-all hover:bg-[#eaf4f0] shadow-xl"
             >
-              <div className="absolute inset-0 overflow-hidden">
-                <video
-                  className="service-image absolute -inset-[5%] h-[110%] w-[110%] object-cover"
-                  src="/premierpoolsvideo.mp4"
-                  poster="/poolservices.jpg.webp"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="auto"
-                  aria-hidden="true"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0e1a13] via-[#0e1a13]/20 to-transparent" />
-              </div>
-
-              <div className="relative z-10 flex min-h-[520px] flex-col justify-between p-7 md:p-9">
-                <div className="flex items-start justify-between">
-                  <span className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[8px] font-extrabold uppercase tracking-[0.18em] backdrop-blur-sm">
-                    01 / Pool
-                  </span>
-
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#1a2e22] transition-transform duration-500 group-hover:rotate-45">
-                    ↗
-                  </span>
-                </div>
-
-                <div>
-                  <h3
-                    className="text-6xl font-extrabold leading-[0.82] tracking-[-0.07em] md:text-7xl"
-                    style={{ fontFamily: sans }}
-                  >
-                    Pool
-                    <br />
-                    maintenance.
-                  </h3>
-
-                  <div className="mt-8 flex items-center justify-between border-t border-white/20 pt-5">
-                    <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-white/80">
-                      Clean · Balanced · Ready
-                    </p>
-
-                    <span className="text-[9px] font-bold uppercase tracking-[0.16em] text-white/60">
-                      View →
-                    </span>
-                  </div>
-                </div>
-              </div>
+              Discover our services
+              <span>→</span>
             </a>
+          </div>
+        </div>
 
-            {/* GARDEN IMAGE CARD */}
+        {/* HERO ICON BAR */}
+        <div className="relative z-10 mx-auto mt-16 mb-4 grid w-full max-w-7xl grid-cols-2 gap-4 rounded-2xl bg-white/95 p-4 text-[#16221b] backdrop-blur-md sm:grid-cols-5 md:p-6 shadow-2xl border border-white/40">
+          <div className="flex flex-col items-center justify-center text-center p-2">
+            <span className="text-xl mb-1">🌊</span>
+            <span className="text-[10px] font-extrabold uppercase tracking-[0.15em]">Pool Care</span>
+          </div>
+          <div className="flex flex-col items-center justify-center text-center p-2 border-l border-[#16221b]/10">
+            <span className="text-xl mb-1">🌿</span>
+            <span className="text-[10px] font-extrabold uppercase tracking-[0.15em]">Garden Maintenance</span>
+          </div>
+          <div className="flex flex-col items-center justify-center text-center p-2 sm:border-l border-[#16221b]/10">
+            <span className="text-xl mb-1">🏡</span>
+            <span className="text-[10px] font-extrabold uppercase tracking-[0.15em]">Property Management</span>
+          </div>
+          <div className="flex flex-col items-center justify-center text-center p-2 border-l border-[#16221b]/10">
+            <span className="text-xl mb-1">🔒</span>
+            <span className="text-[10px] font-extrabold uppercase tracking-[0.15em]">Security & Keyholding</span>
+          </div>
+          <div className="col-span-2 sm:col-span-1 flex flex-col items-center justify-center text-center p-2 border-t sm:border-t-0 sm:border-l border-[#16221b]/10">
+            <span className="text-xl mb-1">✨</span>
+            <span className="text-[10px] font-extrabold uppercase tracking-[0.15em]">Peace of Mind</span>
+          </div>
+        </div>
+      </section>
 
-            <a
-              href="/services"
-              className="service-card group relative min-h-[520px] overflow-hidden rounded-[28px] bg-[#687f69] text-white"
-            >
-              <div className="absolute inset-0 overflow-hidden">
+      {/* MORE THAN MAINTENANCE */}
+      <section id="why-choose-us" className="bg-[#dcf2e8] px-6 py-20 text-[#16221b] md:px-12 md:py-28 border-t border-[#c5e2d4]">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
+          <div className="overflow-hidden rounded-3xl shadow-xl border border-[#b8dfcd]">
+            <img
+              src="/aboutme1.jpg"
+              alt="Beautiful property and olive tree landscape"
+              className="h-[400px] w-full object-cover md:h-[500px]"
+            />
+          </div>
+
+          <div>
+            <p className="text-[9px] font-extrabold uppercase tracking-[0.25em] text-[#3b6650]">
+              More than maintenance
+            </p>
+            <h2 className="mt-3 font-serif text-3xl font-normal leading-tight md:text-5xl text-[#12241b]">
+              A Complete Service for a Beautifully Cared for Property
+            </h2>
+            <p className="mt-6 text-sm leading-relaxed text-[#355243]">
+              We provide a personalised, reliable and discreet property care service across the Côte d’Azur, ensuring your home, garden and pool are always in perfect condition — whether you are in residence or away.
+            </p>
+
+            <div className="mt-8">
+              <Link
+                href="/enquire"
+                className="inline-flex items-center gap-3 rounded-full bg-[#12241b] px-8 py-4 text-[10px] font-extrabold uppercase tracking-[0.2em] text-white transition-transform hover:scale-105"
+              >
+                Find out more
+                <span>→</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* CHECKLIST HIGHLIGHTS */}
+          <div className="lg:col-span-2 grid gap-4 rounded-3xl bg-[#cbeade] p-6 md:p-8 sm:grid-cols-2 lg:grid-cols-4 border border-[#b4d6c2]">
+            <div className="flex items-start gap-3">
+              <span className="text-[#3b6650] font-bold">✓</span>
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#12241b]">Regular property inspections</h4>
+                <p className="text-[11px] text-[#3b6650] mt-1">Detailed checks inside and out.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-[#3b6650] font-bold">✓</span>
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#12241b]">Pool maintenance & water management</h4>
+                <p className="text-[11px] text-[#3b6650] mt-1">Crystal clear balancing year-round.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-[#3b6650] font-bold">✓</span>
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#12241b]">Garden & grounds care</h4>
+                <p className="text-[11px] text-[#3b6650] mt-1">Pruning, lawn care and landscaping.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-[#3b6650] font-bold">✓</span>
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#12241b]">Keyholding & security checks</h4>
+                <p className="text-[11px] text-[#3b6650] mt-1">Secure local oversight and response.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-[#3b6650] font-bold">✓</span>
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#12241b]">Pre-arrival & departure preparation</h4>
+                <p className="text-[11px] text-[#3b6650] mt-1">Your home ready the moment you land.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-[#3b6650] font-bold">✓</span>
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#12241b]">Storm & weather checks</h4>
+                <p className="text-[11px] text-[#3b6650] mt-1">Immediate post-storm inspections.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-[#3b6650] font-bold">✓</span>
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#12241b]">Contractor access & supervision</h4>
+                <p className="text-[11px] text-[#3b6650] mt-1">Managing local trades on-site.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-[#3b6650] font-bold">✓</span>
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#12241b]">Photographic reports</h4>
+                <p className="text-[11px] text-[#3b6650] mt-1">Transparent updates sent directly.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* OUR SERVICES CARDS */}
+      <section id="services" className="bg-[#d0ebd6] px-6 py-20 text-[#16221b] md:px-12 md:py-28 border-t border-[#afd9c3]/60">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-center text-[9px] font-extrabold uppercase tracking-[0.25em] text-[#426653]">
+            Our services
+          </p>
+          <h2 className="mt-3 text-center font-serif text-3xl font-normal md:text-5xl text-[#12241b]">
+            Everything Your Property Needs
+          </h2>
+
+          <div className="mt-12 grid gap-8 lg:grid-cols-3">
+            {/* CARD 1 */}
+            <div className="group relative overflow-hidden rounded-3xl bg-[#bde3cb] border border-[#a2d3bc] flex flex-col justify-between">
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src="/poolservices.jpg.webp"
+                  alt="Pool Care"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#bde3cb] via-transparent to-transparent" />
+              </div>
+              <div className="p-8 flex flex-col justify-between flex-grow">
+                <div>
+                  <h3 className="text-2xl font-bold tracking-tight text-[#12241b]">Pool Care</h3>
+                  <p className="mt-2 text-sm text-[#315241]">
+                    Crystal clear. All year round. Complete chemical balancing, cleaning, equipment monitoring, and winterisation.
+                  </p>
+                </div>
+                <div className="mt-8 pt-4 border-t border-[#12241b]/10 flex items-center justify-between">
+                  <Link href="/enquire" className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#3b6650]">Learn more</Link>
+                  <span className="text-lg text-[#12241b]">→</span>
+                </div>
+              </div>
+            </div>
+
+            {/* CARD 2 */}
+            <div className="group relative overflow-hidden rounded-3xl bg-[#bde3cb] border border-[#a2d3bc] flex flex-col justify-between">
+              <div className="relative h-64 overflow-hidden">
                 <img
                   src="/gardenservices.jpg.webp"
-                  alt=""
-                  className="service-image absolute -inset-[5%] h-[110%] w-[110%] object-cover"
+                  alt="Garden Maintenance"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1d2d22] via-[#1d2d22]/15 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#bde3cb] via-transparent to-transparent" />
               </div>
-
-              <div className="relative z-10 flex min-h-[520px] flex-col justify-between p-7 md:p-9">
-                <div className="flex items-start justify-between">
-                  <span className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[8px] font-extrabold uppercase tracking-[0.18em] backdrop-blur-sm">
-                    02 / Garden
-                  </span>
-
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#1d2d22] transition-transform duration-500 group-hover:rotate-45">
-                    ↗
-                  </span>
-                </div>
-
+              <div className="p-8 flex flex-col justify-between flex-grow">
                 <div>
-                  <h3
-                    className="text-6xl font-extrabold leading-[0.82] tracking-[-0.07em] md:text-7xl"
-                    style={{ fontFamily: sans }}
-                  >
-                    Garden
-                    <br />
-                    care.
-                  </h3>
-
-                  <div className="mt-8 flex items-center justify-between border-t border-white/20 pt-5">
-                    <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-white/80">
-                      Neat · Healthy · Ready
-                    </p>
-
-                    <span className="text-[9px] font-bold uppercase tracking-[0.16em] text-white/60">
-                      View →
-                    </span>
-                  </div>
+                  <h3 className="text-2xl font-bold tracking-tight text-[#12241b]">Garden Maintenance</h3>
+                  <p className="mt-2 text-sm text-[#315241]">
+                    Beautiful, healthy outdoor spaces. Lawn care, pruning, hedge trimming, irrigation management, and seasonal planting.
+                  </p>
+                </div>
+                <div className="mt-8 pt-4 border-t border-[#12241b]/10 flex items-center justify-between">
+                  <Link href="/enquire" className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#3b6650]">Learn more</Link>
+                  <span className="text-lg text-[#12241b]">→</span>
                 </div>
               </div>
-            </a>
-          </div>
-
-          <div className="service-footer mt-7 flex flex-wrap gap-x-8 gap-y-3 border-t border-[#16221b]/15 pt-5 text-[9px] font-extrabold uppercase tracking-[0.18em] text-[#65756c]">
-            <span>Private properties</span>
-            <span>Holiday homes</span>
-            <span>Estates</span>
-            <span>South West France</span>
-          </div>
-        </div>
-      </section>
-
-      {/* STANDARD */}
-
-      <section
-        ref={standardRef}
-        className="overflow-hidden bg-[#eef2ec] px-6 py-24 md:px-12 md:py-32"
-      >
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-16 lg:grid-cols-[0.3fr_1.7fr]">
-            <div className="standard-number">
-              <p className="text-[9px] font-extrabold uppercase tracking-[0.2em] text-[#75847b]">
-                The standard
-              </p>
-
-              <p className="mt-5 text-5xl font-extrabold tracking-[-0.07em] text-[#16221b]">
-                20+
-              </p>
-
-              <p className="mt-1 text-[9px] font-extrabold uppercase tracking-[0.16em] text-[#78887e]">
-                Years experience
-              </p>
             </div>
 
-            <div>
-              <h2
-                className="standard-heading max-w-6xl text-[11vw] font-extrabold leading-[0.84] tracking-[-0.07em] text-[#16221b] md:text-[7vw]"
-                style={{ fontFamily: sans }}
-              >
-                A reliable standard.
-                <br />
-                <span className="text-[#688273]">Every visit.</span>
-              </h2>
-
-              <div className="mt-12 grid gap-6 md:grid-cols-2">
-                <div className="standard-detail border-t border-[#16221b]/15 pt-5">
-                  <p className="text-[9px] font-extrabold uppercase tracking-[0.18em] text-[#78857d]">
-                    About Huw
-                  </p>
-
-                  <p className="mt-4 max-w-md text-sm font-bold leading-6 text-[#425247]">
-                    With over 20 years of experience in garden and pool
-                    maintenance, Huw provides dependable, hands-on care for
-                    private properties, holiday homes and estates across South
-                    West France.
-                  </p>
-                </div>
-
-                <div className="standard-detail border-t border-[#16221b]/15 pt-5">
-                  <p className="text-[9px] font-extrabold uppercase tracking-[0.18em] text-[#78857d]">
-                    Experience & care
-                  </p>
-
-                  <p className="mt-4 max-w-md text-sm font-bold leading-6 text-[#425247]">
-                    Every property is treated with the same attention to
-                    detail, with a focus on keeping gardens healthy, pools
-                    maintained and outdoor spaces looking their best throughout
-                    the year.
-                  </p>
-                </div>
+            {/* CARD 3 */}
+            <div className="group relative overflow-hidden rounded-3xl bg-[#bde3cb] border border-[#a2d3bc] flex flex-col justify-between">
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src="/aboutme2.jpg"
+                  alt="Property Care"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#bde3cb] via-transparent to-transparent" />
               </div>
-
-              <div className="mt-10 grid gap-5 md:grid-cols-2">
-                <div className="overflow-hidden rounded-[28px]">
-                  <img
-                    src="/before1.jpg"
-                    alt="Garden before maintenance"
-                    className="standard-image h-[430px] w-full scale-[1.08] object-cover md:h-[560px]"
-                  />
+              <div className="p-8 flex flex-col justify-between flex-grow">
+                <div>
+                  <h3 className="text-2xl font-bold tracking-tight text-[#12241b]">Property Care</h3>
+                  <p className="mt-2 text-sm text-[#315241]">
+                    Security, management and total peace of mind. Regular physical inspections, storm checks, and concierge oversight.
+                  </p>
                 </div>
-
-                <div className="overflow-hidden rounded-[28px]">
-                  <img
-                    src="/after1.jpg"
-                    alt="Garden after maintenance"
-                    className="standard-image h-[430px] w-full scale-[1.08] object-cover md:h-[560px]"
-                  />
+                <div className="mt-8 pt-4 border-t border-[#12241b]/10 flex items-center justify-between">
+                  <Link href="/enquire" className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#3b6650]">Learn more</Link>
+                  <span className="text-lg text-[#12241b]">→</span>
                 </div>
               </div>
             </div>
@@ -789,246 +436,142 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PRICING */}
+      {/* TESTIMONIAL BANNER */}
+      <section className="bg-[#c5e6d4] px-6 py-16 md:px-12 md:py-20 border-t border-b border-[#aed9c4]">
+        <div className="mx-auto max-w-5xl grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-center">
+          <div>
+            <blockquote className="font-serif text-2xl italic leading-relaxed text-[#12241b] sm:text-3xl">
+              “Reliable, professional and completely trustworthy. Our property has never looked better.”
+            </blockquote>
+            <p className="mt-4 text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#3b6650]">
+              Villa Owner, Valbonne
+            </p>
+          </div>
+          <div className="rounded-2xl bg-[#daf2e7] p-6 border border-[#aed9c4] flex flex-col justify-center shadow-sm">
+            <div className="flex items-center gap-2 text-[#3b6650] text-sm mb-2">🌿</div>
+            <h4 className="text-xs font-extrabold uppercase tracking-[0.15em] text-[#12241b]">
+              Locally Based. Personally Invested.
+            </h4>
+            <p className="mt-2 text-xs text-[#315241] leading-relaxed">
+              We live and work in the Côte d’Azur and take pride in looking after a select number of properties with the highest standards of care.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <section
-        id="pricing"
-        ref={pricingRef}
-        className="bg-[#e1e8e1] px-6 py-24 md:px-12 md:py-32"
-      >
-        <div className="mx-auto max-w-7xl">
-          <div className="pricing-heading flex flex-col justify-between gap-7 md:flex-row md:items-end">
-            <div>
-              <p className="text-[9px] font-extrabold uppercase tracking-[0.2em] text-[#627368]">
-                Pricing
-              </p>
-
-              <h2
-                className="mt-5 text-[12vw] font-extrabold leading-[0.84] tracking-[-0.07em] text-[#16221b] md:text-[7vw]"
-                style={{ fontFamily: sans }}
+      {/* AREAS WE COVER */}
+      <section id="areas" className="bg-[#b6dfcc] px-6 py-20 text-[#12241b] md:px-12 border-t border-[#92ceb3]/60">
+        <div className="mx-auto max-w-7xl text-center">
+          <p className="text-[9px] font-extrabold uppercase tracking-[0.25em] text-[#365948]">
+            Areas We Cover
+          </p>
+          <h2 className="mt-3 font-serif text-3xl font-normal md:text-4xl">
+            Serving the Côte d’Azur
+          </h2>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            {["Grasse", "Valbonne", "Mougins", "Cannes", "Antibes", "and surrounding areas"].map((area, i) => (
+              <span
+                key={i}
+                className="rounded-full bg-[#daf2e7] border border-[#9ed4bd] px-6 py-3 text-xs font-bold uppercase tracking-[0.15em] text-[#12241b] shadow-sm"
               >
-                Straightforward.
-              </h2>
-            </div>
+                {area}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <p className="max-w-xs text-sm font-bold leading-6 text-[#4e5e54]">
-              Every property is different. Quotes are tailored to the work
-              required.
+      {/* LET'S LOOK AFTER YOUR PROPERTY CALLOUT */}
+      <section id="contact" className="relative overflow-hidden bg-[#a5d5be] px-6 py-24 text-[#12241b] md:px-12 md:py-32 border-t border-[#8cc6ab]">
+        <div className="absolute inset-0 overflow-hidden opacity-20">
+          <img
+            src="/aboutme3.jpg"
+            alt="Landscape background"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[#a5d5be]/70" />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-5xl flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          <div>
+            <h2 className="font-serif text-4xl font-normal md:text-6xl text-[#12241b]">
+              Let’s Look After <br />
+              Your Property
+            </h2>
+            <p className="mt-4 text-sm text-[#244031] max-w-md font-medium">
+              Get in touch to arrange a friendly, no-obligation property assessment.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            <div className="pricing-card rounded-[26px] bg-white p-7 md:p-9">
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="text-[9px] font-extrabold uppercase tracking-[0.18em] text-[#76857c]">
-                    01
-                  </p>
-
-                  <h3
-                    className="mt-4 text-4xl font-extrabold tracking-[-0.06em] text-[#16221b]"
-                    style={{ fontFamily: sans }}
-                  >
-                    Garden
-                  </h3>
-                </div>
-
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#e1e8e1]">
-                  ↗
-                </span>
-              </div>
-
-              <div className="mt-12 border-t border-[#16221b]/10 pt-5">
-                <p className="text-sm font-bold leading-6 text-[#4e5e54]">
-                  Regular garden maintenance, tailored to your property.
-                </p>
-
-                <a
-                  href="/contact"
-                  className="mt-7 inline-flex rounded-full bg-[#15241b] px-5 py-3 text-[9px] font-extrabold uppercase tracking-[0.16em] text-white transition-transform hover:scale-[1.02]"
-                >
-                  Get a quote
-                </a>
-              </div>
-            </div>
-
-            <div className="pricing-card rounded-[26px] bg-[#203427] p-7 text-white md:p-9">
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="text-[9px] font-extrabold uppercase tracking-[0.18em] text-white/60">
-                    02
-                  </p>
-
-                  <h3
-                    className="mt-4 text-4xl font-extrabold tracking-[-0.06em]"
-                    style={{ fontFamily: sans }}
-                  >
-                    Pool
-                  </h3>
-                </div>
-
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#203427]">
-                  ↗
-                </span>
-              </div>
-
-              <div className="mt-12 border-t border-white/15 pt-5">
-                <p className="text-sm font-bold leading-6 text-white/80">
-                  Professional pool maintenance, tailored to your pool.
-                </p>
-
-                <a
-                  href="/contact"
-                  className="mt-7 inline-flex rounded-full bg-white px-5 py-3 text-[9px] font-extrabold uppercase tracking-[0.16em] text-[#15241b] transition-transform hover:scale-[1.02]"
-                >
-                  Get a quote
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-7 border-t border-[#16221b]/15 pt-5">
-            <a
-              href="/contact"
-              className="text-[9px] font-extrabold uppercase tracking-[0.18em] text-[#4f5f56] transition-colors hover:text-[#16221b]"
+          <div>
+            <Link
+              href="/enquire"
+              className="inline-flex items-center gap-3 rounded-full bg-[#12241b] px-8 py-4 text-xs font-extrabold uppercase tracking-[0.2em] text-white transition-transform hover:scale-105 shadow-xl"
             >
-              Need something more specific? Talk to us →
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* CONTACT */}
-
-      <section
-        ref={contactRef}
-        className="bg-[#25362b] px-6 py-24 text-white md:px-12 md:py-32"
-      >
-        <div className="mx-auto max-w-7xl">
-          <p className="contact-eyebrow text-[9px] font-extrabold uppercase tracking-[0.2em] text-white/60">
-            Get in touch
-          </p>
-
-          <div className="mt-8 grid gap-10 lg:grid-cols-[1.35fr_0.65fr] lg:items-end">
-            <h2
-              className="contact-heading text-[14vw] font-extrabold leading-[0.82] tracking-[-0.08em] md:text-[8vw]"
-              style={{ fontFamily: sans }}
-            >
-              Let’s look after
-              <br />
-              <span className="text-[#8ab097]">your property.</span>
-            </h2>
-
-            <div className="contact-actions">
-              <p className="max-w-sm text-sm font-bold leading-6 text-white/80">
-                Tell us what you need and we'll take it from there.
-              </p>
-
-              <div className="mt-7 flex flex-col gap-4 sm:flex-row lg:flex-col">
-                <a
-                  href="mailto:webbhuw@gmail.com"
-                  className="group relative inline-flex items-center justify-between overflow-hidden rounded-full bg-white px-7 py-4 text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#25362b] shadow-sm transition-all duration-300 hover:scale-[1.02] hover:bg-[#f1f4ef]"
-                >
-                  <span className="relative z-10">Email Huw</span>
-
-                  <span className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full bg-[#e1e8e1] transition-transform duration-300 group-hover:translate-x-1">
-                    ↗
-                  </span>
-                </a>
-
-                <a
-                  href="https://wa.me/447591284463"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-between overflow-hidden rounded-full border border-white/25 bg-white/10 px-7 py-4 text-[10px] font-extrabold uppercase tracking-[0.2em] text-white shadow-sm backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:border-white/40 hover:bg-white/15"
-                >
-                  <span className="relative z-10">WhatsApp Chat</span>
-
-                  <span className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-white/80 transition-transform duration-300 group-hover:translate-x-1">
-                    ↗
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-16 grid gap-8 border-t border-white/15 pt-7 sm:grid-cols-3">
-            <div>
-              <p className="text-[8px] font-extrabold uppercase tracking-[0.18em] text-white/50">
-                Phone
-              </p>
-
-              <a
-                href="tel:+447591284463"
-                className="mt-3 block text-sm font-bold text-white"
-              >
-                +44 (0)7591 284463
-              </a>
-            </div>
-
-            <div>
-              <p className="text-[8px] font-extrabold uppercase tracking-[0.18em] text-white/50">
-                Email
-              </p>
-
-              <a
-                href="mailto:webbhuw@gmail.com"
-                className="mt-3 block text-sm font-bold text-white"
-              >
-                webbhuw@gmail.com
-              </a>
-            </div>
-
-            <div>
-              <p className="text-[8px] font-extrabold uppercase tracking-[0.18em] text-white/50">
-                Coverage
-              </p>
-
-              <p className="mt-3 text-sm font-bold text-white">
-                Tarn-et-Garonne & Gers
-              </p>
-            </div>
+              Enquire Now
+              <span>→</span>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-
-      <footer className="bg-[#17231b] px-6 py-7 text-white md:px-12">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
-          <a
-            href="/"
-            className="text-[9px] font-extrabold uppercase tracking-[0.18em] text-white/70"
-          >
-            Premier Pools & Gardens
-          </a>
-
-          <div className="flex flex-wrap gap-6 text-[9px] font-extrabold uppercase tracking-[0.18em] text-white/50">
-            <a
-              href="/services"
-              className="transition-colors hover:text-white"
-            >
-              Services
-            </a>
-
-            <a
-              href="/#pricing"
-              className="transition-colors hover:text-white"
-            >
-              Pricing
-            </a>
-
-            <a
-              href="/contact"
-              className="transition-colors hover:text-white"
-            >
-              Contact
-            </a>
+      <footer className="bg-[#12241b] px-6 py-12 text-white md:px-12 border-t border-[#1f3d2f]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-3">
+            <img
+              src="/logo.png"
+              alt="Premier Pools & Gardens"
+              className="h-8 w-auto object-contain brightness-0 invert"
+            />
+            <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-white/80">
+              Premier Pools & Gardens
+            </span>
           </div>
 
-          <span className="text-[9px] font-extrabold uppercase tracking-[0.18em] text-white/40">
-            South West France
-          </span>
+          <div className="text-xs text-white/60 flex flex-wrap gap-x-6 gap-y-2">
+            <span>Grasse</span>
+            <span>Valbonne</span>
+            <span>Mougins</span>
+            <span>Cannes</span>
+            <span>Antibes</span>
+            <span>and surrounding areas</span>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-xs text-white hover:bg-white/10"
+            >
+              📷
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-xs text-white hover:bg-white/10"
+            >
+              f
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-xs text-white hover:bg-white/10"
+            >
+              in
+            </a>
+          </div>
+        </div>
+
+        <div className="mx-auto mt-12 max-w-7xl border-t border-white/10 pt-6 text-center md:flex md:justify-between text-[10px] uppercase tracking-[0.15em] text-white/40">
+          <p>© {new Date().getFullYear()} Premier Pools & Gardens. All rights reserved.</p>
+          <p className="mt-2 md:mt-0">Properties cared for, so you can enjoy them.</p>
         </div>
       </footer>
     </main>

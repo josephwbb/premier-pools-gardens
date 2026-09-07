@@ -1,60 +1,45 @@
 "use client";
 
-import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
-});
+import { Plus_Jakarta_Sans } from "next/font/google";
 
 const sans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export default function ContactPage() {
   return (
     <main
-      className={`${sans.className} relative min-h-screen overflow-hidden bg-[#0e1310] text-[#e3e7e3]`}
+      className={`${sans.className} relative min-h-screen overflow-hidden bg-[#0d120a] text-[#e3e7e3] font-bold`}
     >
      
 {/* =====================================================
     BACKGROUND
 ====================================================== */}
 <div className="pointer-events-none fixed inset-0 -z-0 overflow-hidden">
-  {/* Main visual background */}
   <img
     src="/contact-background.jpg"
     alt=""
-    className="absolute inset-0 h-full w-full object-cover opacity-75"
+    className="absolute inset-0 h-full w-full object-cover opacity-60 mix-blend-luminosity brightness-75"
   />
-
-  {/* Dark green colour overlay */}
-  <div className="absolute inset-0 bg-[#14251a]/65" />
-
-  {/* Deeper green vignette for readability */}
-  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(42,72,51,0.15),rgba(8,14,10,0.72)_75%)]" />
-
-  {/* Subtle edge darkening */}
-  <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(8,14,10,0.35)_0%,rgba(14,19,16,0.15)_35%,rgba(8,14,10,0.6)_100%)]" />
+  <div className="absolute inset-0 bg-black/50" />
 </div>
 
       {/* =====================================================
           HEADER
       ====================================================== */}
 
-      <header className="relative z-20 flex items-center justify-between border-b border-white/5 bg-[#0e1310]/25 px-6 py-7 backdrop-blur-[2px] md:px-14">
+      <header className="relative z-20 flex items-center justify-between border-b border-white/10 bg-[#0d120a]/30 px-6 py-7 md:px-14">
         <a
           href="/"
-          className="text-xs font-semibold uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-70"
+          className="text-xs font-bold uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-70"
         >
           Premier Pools & Gardens
         </a>
 
         <a
           href="/"
-          className="rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/80 backdrop-blur-md transition-all hover:bg-white/10 hover:text-white"
+          className="rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-[10px] font-bold uppercase tracking-[0.18em] text-white backdrop-blur-md transition-all hover:bg-white/20 hover:text-white"
         >
           Back to Home
         </a>
@@ -72,19 +57,19 @@ export default function ContactPage() {
           ================================================== */}
 
           <div className="max-w-3xl">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#9aa89c]">
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#b4c4b6]">
               Get in touch
             </p>
 
             <h1
-              className={`${cormorant.className} mt-4 text-5xl font-semibold leading-[0.95] text-white sm:text-6xl md:text-8xl`}
+              className="mt-4 text-5xl font-bold tracking-tight leading-[1.05] text-white sm:text-6xl md:text-7xl"
             >
               Let's look after
               <br />
               your property.
             </h1>
 
-            <p className="mt-8 max-w-xl text-sm leading-relaxed text-[#a1aca3] md:text-base">
+            <p className="mt-8 max-w-xl text-sm font-bold leading-relaxed text-[#c4ccd0] md:text-base">
               Whether you need regular pool maintenance, garden care, seasonal
               preparation, or support with a second home, get in touch to
               arrange a conversation or site visit.
@@ -102,42 +87,37 @@ export default function ContactPage() {
             ================================================== */}
 
             <div className="lg:col-span-5">
-              <div className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-[#344438] bg-[#101711]/88 p-8 shadow-[0_20px_80px_rgba(0,0,0,0.18)] backdrop-blur-xl md:p-10">
-
-                {/* Decorative glow */}
-                <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#294b34]/20 blur-[90px]" />
-
-                <div className="pointer-events-none absolute -bottom-32 -left-20 h-64 w-64 rounded-full bg-[#213a29]/10 blur-[90px]" />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/15 bg-black/40 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.4)] backdrop-blur-xl md:p-10">
 
                 {/* Header */}
                 <div className="relative z-10">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#9aa89c]">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#b4c4b6]">
                     Direct contact
                   </p>
 
                   <h2
-                    className={`${cormorant.className} mt-3 text-4xl font-semibold leading-tight text-white md:text-5xl`}
+                    className="mt-3 text-3xl font-bold tracking-tight leading-tight text-white md:text-4xl"
                   >
                     Prefer to talk
                     <br />
                     directly?
                   </h2>
 
-                  <p className="mt-5 max-w-sm text-sm leading-relaxed text-[#8d998f]">
+                  <p className="mt-5 max-w-sm text-sm font-bold leading-relaxed text-[#c4ccd0]">
                     For a quick question, availability check, or to arrange a
                     visit, WhatsApp is often the easiest way to reach me.
                   </p>
                 </div>
 
                 {/* WhatsApp Card */}
-                <div className="relative z-10 mt-10 rounded-2xl border border-[#35483a] bg-[#162019]/90 p-6 shadow-[0_15px_50px_rgba(0,0,0,0.14)]">
+                <div className="relative z-10 mt-10 rounded-2xl border border-white/15 bg-white/5 p-6 shadow-xl backdrop-blur-md">
 
                   <div className="flex items-center gap-4">
 
                     {/* WhatsApp icon */}
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#405844] bg-[#1c2b20]">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
                       <svg
-                        className="h-5 w-5 fill-[#c3d0c5]"
+                        className="h-5 w-5 fill-white"
                         viewBox="0 0 24 24"
                         aria-hidden="true"
                       >
@@ -146,11 +126,11 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-[#718073]">
+                      <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-[#b4c4b6]">
                         WhatsApp
                       </p>
 
-                      <p className="mt-1 text-sm font-semibold text-white">
+                      <p className="mt-1 text-sm font-bold text-white">
                         +44 (0)7591 284463
                       </p>
                     </div>
@@ -160,7 +140,7 @@ export default function ContactPage() {
                     href="https://wa.me/447591284463"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 flex w-full items-center justify-center rounded-full bg-[#dfe6df] px-6 py-3.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#101610] transition-all hover:bg-white hover:shadow-[0_8px_30px_rgba(255,255,255,0.08)]"
+                    className="mt-6 flex w-full items-center justify-center rounded-2xl bg-white px-6 py-4 text-[10px] font-bold uppercase tracking-[0.18em] text-[#0d120a] transition-all hover:bg-[#e3e7e3] hover:shadow-lg"
                   >
                     Message on WhatsApp
                   </a>
@@ -168,29 +148,29 @@ export default function ContactPage() {
 
                 {/* Other contact information */}
                 <div className="relative z-10 mt-auto pt-10">
-                  <div className="border-t border-[#29382d] pt-7">
+                  <div className="border-t border-white/15 pt-7">
 
                     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
 
                       <div>
-                        <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#718073]">
+                        <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#b4c4b6]">
                           Email
                         </p>
 
                         <a
                           href="mailto:webbhuw@gmail.com"
-                          className="mt-2 block break-all text-sm font-medium text-white transition-colors hover:text-[#b8c8ba]"
+                          className="mt-2 block break-all text-sm font-bold text-white transition-colors hover:text-[#b4c4b6]"
                         >
                           webbhuw@gmail.com
                         </a>
                       </div>
 
                       <div>
-                        <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#718073]">
+                        <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#b4c4b6]">
                           Coverage
                         </p>
 
-                        <p className="mt-2 text-sm font-medium text-white">
+                        <p className="mt-2 text-sm font-bold text-white">
                           Tarn-et-Garonne
                           <br />
                           & Gers
@@ -209,24 +189,24 @@ export default function ContactPage() {
             ================================================== */}
 
             <div className="lg:col-span-7">
-              <div className="rounded-3xl border border-[#344438] bg-[#101711]/90 p-8 shadow-[0_20px_80px_rgba(0,0,0,0.18)] backdrop-blur-xl md:p-10">
+              <div className="rounded-3xl border border-white/15 bg-black/40 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.4)] backdrop-blur-xl md:p-10">
 
                 {/* Form header */}
-                <div className="border-b border-[#29382d] pb-8">
+                <div className="border-b border-white/15 pb-8">
 
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#9aa89c]">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#b4c4b6]">
                     Enquiry
                   </p>
 
                   <h2
-                    className={`${cormorant.className} mt-3 text-4xl font-semibold leading-tight text-white md:text-5xl`}
+                    className="mt-3 text-3xl font-bold tracking-tight leading-tight text-white md:text-4xl"
                   >
                     Tell me about
                     <br />
                     your property.
                   </h2>
 
-                  <p className="mt-4 max-w-lg text-sm leading-relaxed text-[#879388]">
+                  <p className="mt-4 max-w-lg text-sm font-bold leading-relaxed text-[#c4ccd0]">
                     Fill in the details below and I'll get back to you to
                     discuss what you need.
                   </p>
@@ -245,7 +225,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#849186]"
+                      className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#b4c4b6]"
                     >
                       Your name
                     </label>
@@ -256,7 +236,7 @@ export default function ContactPage() {
                       type="text"
                       required
                       placeholder="Your name"
-                      className="mt-2 w-full border-b border-[#2a382d] bg-transparent px-0 py-3 text-sm font-medium text-white outline-none placeholder:text-[#4f5c51] transition-colors focus:border-[#9baa9c]"
+                      className="mt-2 w-full rounded-xl border border-white/20 bg-white/5 px-4 py-3.5 text-sm font-bold text-white outline-none placeholder:text-[#6b7c6d] transition-colors focus:border-white focus:bg-white/10"
                     />
                   </div>
 
@@ -266,7 +246,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="email"
-                        className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#849186]"
+                        className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#b4c4b6]"
                       >
                         Email address
                       </label>
@@ -277,14 +257,14 @@ export default function ContactPage() {
                         type="email"
                         required
                         placeholder="you@example.com"
-                        className="mt-2 w-full border-b border-[#2a382d] bg-transparent px-0 py-3 text-sm font-medium text-white outline-none placeholder:text-[#4f5c51] transition-colors focus:border-[#9baa9c]"
+                        className="mt-2 w-full rounded-xl border border-white/20 bg-white/5 px-4 py-3.5 text-sm font-bold text-white outline-none placeholder:text-[#6b7c6d] transition-colors focus:border-white focus:bg-white/10"
                       />
                     </div>
 
                     <div>
                       <label
                         htmlFor="phone"
-                        className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#849186]"
+                        className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#b4c4b6]"
                       >
                         Phone
                       </label>
@@ -294,7 +274,7 @@ export default function ContactPage() {
                         name="Phone"
                         type="tel"
                         placeholder="+33..."
-                        className="mt-2 w-full border-b border-[#2a382d] bg-transparent px-0 py-3 text-sm font-medium text-white outline-none placeholder:text-[#4f5c51] transition-colors focus:border-[#9baa9c]"
+                        className="mt-2 w-full rounded-xl border border-white/20 bg-white/5 px-4 py-3.5 text-sm font-bold text-white outline-none placeholder:text-[#6b7c6d] transition-colors focus:border-white focus:bg-white/10"
                       />
                     </div>
 
@@ -304,7 +284,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="service"
-                      className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#849186]"
+                      className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#b4c4b6]"
                     >
                       What can I help with?
                     </label>
@@ -313,47 +293,47 @@ export default function ContactPage() {
                       id="service"
                       name="Service"
                       defaultValue=""
-                      className="mt-2 w-full border-b border-[#2a382d] bg-transparent px-0 py-3 text-sm font-medium text-white outline-none transition-colors focus:border-[#9baa9c]"
+                      className="mt-2 w-full rounded-xl border border-white/20 bg-[#121910] px-4 py-3.5 text-sm font-bold text-white outline-none transition-colors focus:border-white"
                     >
                       <option
                         value=""
                         disabled
-                        className="bg-[#111812]"
+                        className="bg-[#121910] text-[#6b7c6d]"
                       >
                         Select a service
                       </option>
 
                       <option
                         value="Pool Maintenance"
-                        className="bg-[#111812]"
+                        className="bg-[#121910]"
                       >
                         Pool Maintenance
                       </option>
 
                       <option
                         value="Garden Care"
-                        className="bg-[#111812]"
+                        className="bg-[#121910]"
                       >
                         Garden Care
                       </option>
 
                       <option
                         value="Pool & Garden"
-                        className="bg-[#111812]"
+                        className="bg-[#121910]"
                       >
                         Pool & Garden
                       </option>
 
                       <option
                         value="Seasonal Work"
-                        className="bg-[#111812]"
+                        className="bg-[#121910]"
                       >
                         Seasonal Work
                       </option>
 
                       <option
                         value="Other"
-                        className="bg-[#111812]"
+                        className="bg-[#121910]"
                       >
                         Something else
                       </option>
@@ -364,7 +344,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="message"
-                      className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#849186]"
+                      className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#b4c4b6]"
                     >
                       Message
                     </label>
@@ -372,17 +352,17 @@ export default function ContactPage() {
                     <textarea
                       id="message"
                       name="Message"
-                      rows={5}
+                      rows={4}
                       placeholder="Tell me about the property, its location and what you need..."
-                      className="mt-2 w-full resize-none border-b border-[#2a382d] bg-transparent px-0 py-3 text-sm font-medium leading-relaxed text-white outline-none placeholder:text-[#4f5c51] transition-colors focus:border-[#9baa9c]"
+                      className="mt-2 w-full resize-none rounded-xl border border-white/20 bg-white/5 p-4 text-sm font-bold leading-relaxed text-white outline-none placeholder:text-[#6b7c6d] transition-colors focus:border-white focus:bg-white/10"
                     />
                   </div>
 
                   {/* Submit */}
-                  <div className="border-t border-[#29382d] pt-7">
+                  <div className="border-t border-white/15 pt-7">
                     <button
                       type="submit"
-                      className="inline-flex w-full items-center justify-center rounded-full bg-[#e4e9e4] px-7 py-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#101610] transition-all hover:bg-white hover:shadow-[0_10px_35px_rgba(255,255,255,0.08)] sm:w-auto"
+                      className="inline-flex w-full items-center justify-center rounded-2xl bg-white px-7 py-4 text-[10px] font-bold uppercase tracking-[0.18em] text-[#0d120a] transition-all hover:bg-[#e3e7e3] hover:shadow-lg sm:w-auto"
                     >
                       Send enquiry
                     </button>
@@ -398,14 +378,14 @@ export default function ContactPage() {
               BOTTOM INFORMATION
           ================================================== */}
 
-          <div className="mt-6 rounded-3xl border border-[#29382d] bg-[#0c120e]/80 px-7 py-6 shadow-[0_15px_50px_rgba(0,0,0,0.12)] backdrop-blur-xl md:px-10">
+          <div className="mt-6 rounded-3xl border border-white/15 bg-black/40 px-7 py-6 shadow-[0_15px_40px_rgba(0,0,0,0.4)] backdrop-blur-xl md:px-10">
             <div className="flex flex-col gap-4 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
 
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#718073]">
+              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#b4c4b6]">
                 Pool & Garden Maintenance · South West France
               </p>
 
-              <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-[#526053]">
+              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#869c88]">
                 Private Pools · Estates · Holiday Homes
               </p>
 
@@ -419,7 +399,7 @@ export default function ContactPage() {
           FOOTER
       ====================================================== */}
 
-      <footer className="relative z-10 flex flex-col justify-between gap-3 border-t border-[#151c16] bg-[#050705]/95 px-6 py-6 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#526053] sm:flex-row md:px-14">
+      <footer className="relative z-10 flex flex-col justify-between gap-3 border-t border-white/10 bg-black/80 px-6 py-6 text-[10px] font-bold uppercase tracking-[0.15em] text-[#869c88] sm:flex-row md:px-14 backdrop-blur-md">
         <span>Premier Pools & Gardens</span>
         <span>South West France</span>
       </footer>
