@@ -79,13 +79,13 @@ export default function Home() {
               >
                 Home
               </Link>
-              <a
-                href="#services"
+              <Link
+                href="/services"
                 onClick={() => setMenuOpen(false)}
                 className="border-b border-[#122230]/10 py-4 text-2xl font-extrabold tracking-[-0.05em]"
               >
                 Our Services
-              </a>
+              </Link>
               <a
                 href="#why-choose-us"
                 onClick={() => setMenuOpen(false)}
@@ -195,12 +195,12 @@ export default function Home() {
           >
             Home
           </Link>
-          <a
-            href="#services"
+          <Link
+            href="/services"
             className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#122230]/80 hover:text-[#122230]"
           >
             Our Services
-          </a>
+          </Link>
           <a
             href="#why-choose-us"
             className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#122230]/80 hover:text-[#122230]"
@@ -284,30 +284,30 @@ export default function Home() {
           </p>
 
           <div className="mt-6">
-            <a
-              href="#services"
+            <Link
+              href="/services"
               className="inline-flex items-center gap-3 rounded-full bg-white px-6 py-3 text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#122230] transition-all hover:bg-[#f4f7f9] shadow-xl"
             >
               Discover our services
               <span>→</span>
-            </a>
+            </Link>
           </div>
         </div>
 
         {/* HERO ICON BAR */}
         <div className="relative z-10 mx-auto mt-16 mb-2 grid w-full max-w-7xl grid-cols-4 gap-1.5 sm:gap-6 rounded-2xl bg-white/90 px-3 py-4 sm:px-6 sm:py-5 text-[#122230] backdrop-blur-md shadow-2xl border border-white/60">
-          <div className="flex flex-col items-center justify-center text-center px-1">
+          <Link href="/services?service=pool" className="flex flex-col items-center justify-center text-center px-1 cursor-pointer transition-opacity hover:opacity-75">
             <span className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-[#122230]">Pool Care</span>
-          </div>
-          <div className="flex flex-col items-center justify-center text-center px-1 border-l border-[#122230]/10">
+          </Link>
+          <Link href="/services?service=garden" className="flex flex-col items-center justify-center text-center px-1 border-l border-[#122230]/10 cursor-pointer transition-opacity hover:opacity-75">
             <span className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-[#122230]">Garden Care</span>
-          </div>
-          <div className="flex flex-col items-center justify-center text-center px-1 border-l border-[#122230]/10">
+          </Link>
+          <Link href="/services?service=property" className="flex flex-col items-center justify-center text-center px-1 border-l border-[#122230]/10 cursor-pointer transition-opacity hover:opacity-75">
             <span className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-[#122230]">Property</span>
-          </div>
-          <div className="flex flex-col items-center justify-center text-center px-1 border-l border-[#122230]/10">
+          </Link>
+          <Link href="/services?service=property" className="flex flex-col items-center justify-center text-center px-1 border-l border-[#122230]/10 cursor-pointer transition-opacity hover:opacity-75">
             <span className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-[#122230]">Peace of Mind</span>
-          </div>
+          </Link>
         </div>
       </section>
 
@@ -381,7 +381,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="mt-8 pt-4 border-t border-[#0f1d2b]/10 flex items-center justify-between">
-                  <Link href="/enquire" className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#345d7e]">Learn more</Link>
+                  <Link href="/services?service=property" className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#345d7e]">Learn more</Link>
                   <span className="text-lg text-[#0f1d2b]">→</span>
                 </div>
               </div>
@@ -408,7 +408,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="mt-8 pt-4 border-t border-[#0f1d2b]/10 flex items-center justify-between">
-                  <Link href="/enquire" className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#345d7e]">Learn more</Link>
+                  <Link href="/services?service=pool" className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#345d7e]">Learn more</Link>
                   <span className="text-lg text-[#0f1d2b]">→</span>
                 </div>
               </div>
@@ -435,7 +435,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="mt-8 pt-4 border-t border-[#0f1d2b]/10 flex items-center justify-between">
-                  <Link href="/enquire" className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#345d7e]">Learn more</Link>
+                  <Link href="/services?service=garden" className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#345d7e]">Learn more</Link>
                   <span className="text-lg text-[#0f1d2b]">→</span>
                 </div>
               </div>
