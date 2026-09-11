@@ -52,10 +52,10 @@ export default function Home() {
             onClick={() => setMenuOpen(false)}
           />
 
-          <div className="absolute right-0 top-0 flex min-h-screen w-[88%] max-w-md flex-col bg-[#f5f8fa] px-6 py-6 text-[#122230] shadow-2xl">
+          <div className="absolute right-0 top-0 flex min-h-screen w-[88%] max-w-md flex-col bg-[#f5f8fa] px-6 py-6 text-[#122230] shadow-2xl overflow-y-auto">
             <div className="flex items-center justify-between border-b border-[#122230]/10 pb-6">
               <span className="text-[10px] font-extrabold uppercase tracking-[0.18em]">
-                Premier Pools & Gardens
+                Riviera House and Grounds
               </span>
 
               <button
@@ -71,45 +71,45 @@ export default function Home() {
               </button>
             </div>
 
-            <nav className="mt-12 flex flex-col">
+            <nav className="mt-8 flex flex-col">
               <Link
                 href="/"
                 onClick={() => setMenuOpen(false)}
-                className="border-b border-[#122230]/10 py-5 text-3xl font-extrabold tracking-[-0.05em]"
+                className="border-b border-[#122230]/10 py-4 text-2xl font-extrabold tracking-[-0.05em]"
               >
                 Home
               </Link>
               <a
                 href="#services"
                 onClick={() => setMenuOpen(false)}
-                className="border-b border-[#122230]/10 py-5 text-3xl font-extrabold tracking-[-0.05em]"
+                className="border-b border-[#122230]/10 py-4 text-2xl font-extrabold tracking-[-0.05em]"
               >
                 Our Services
               </a>
               <a
                 href="#why-choose-us"
                 onClick={() => setMenuOpen(false)}
-                className="border-b border-[#122230]/10 py-5 text-3xl font-extrabold tracking-[-0.05em]"
+                className="border-b border-[#122230]/10 py-4 text-2xl font-extrabold tracking-[-0.05em]"
               >
                 Why Choose Us
               </a>
               <a
                 href="#areas"
                 onClick={() => setMenuOpen(false)}
-                className="border-b border-[#122230]/10 py-5 text-3xl font-extrabold tracking-[-0.05em]"
+                className="border-b border-[#122230]/10 py-4 text-2xl font-extrabold tracking-[-0.05em]"
               >
                 Areas We Cover
               </a>
               <Link
                 href="/enquire"
                 onClick={() => setMenuOpen(false)}
-                className="border-b border-[#122230]/10 py-5 text-3xl font-extrabold tracking-[-0.05em]"
+                className="border-b border-[#122230]/10 py-4 text-2xl font-extrabold tracking-[-0.05em]"
               >
                 Enquire
               </Link>
             </nav>
 
-            <div className="mt-auto pt-6">
+            <div className="mt-8">
               <Link
                 href="/enquire"
                 onClick={() => setMenuOpen(false)}
@@ -118,6 +118,52 @@ export default function Home() {
                 Enquire
               </Link>
             </div>
+
+            {/* Mobile Menu Social / Contact Links */}
+            <div className="mt-8 pt-6 border-t border-[#122230]/10 flex items-center justify-around">
+              <a
+                href="https://whatsapp.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#122230]/20 bg-[#122230]/5 text-[#122230] transition-all hover:bg-[#122230]/15 shadow-sm"
+              >
+                <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                </svg>
+              </a>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#122230]/20 bg-[#122230]/5 text-[#122230] transition-all hover:bg-[#122230]/15 shadow-sm"
+              >
+                <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#122230]/20 bg-[#122230]/5 text-[#122230] transition-all hover:bg-[#122230]/15 shadow-sm"
+              >
+                <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+              <a
+                href="mailto:info@example.com"
+                aria-label="Email"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#122230]/20 bg-[#122230]/5 text-[#122230] transition-all hover:bg-[#122230]/15 shadow-sm"
+              >
+                <svg className="h-5 w-5 fill-none stroke-current stroke-[1.8]" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       )}
@@ -125,17 +171,19 @@ export default function Home() {
       {/* HEADER */}
       <header className="sticky top-0 z-50 flex items-center justify-between bg-white/90 px-6 py-4 shadow-sm backdrop-blur-md md:px-12 md:py-5 border-b border-[#122230]/10">
         <Link href="/" className="flex items-center gap-3">
-          <img
-            src="/logo.png"
-            alt="Premier Pools & Gardens"
-            className="h-9 w-auto object-contain"
-          />
+          <div className="overflow-hidden rounded-full h-9 w-9 flex items-center justify-center bg-[#f4f7f9] border border-[#122230]/10 shrink-0">
+            <img
+              src="/newlogoriviera.jpg"
+              alt="Riviera House and Grounds"
+              className="h-full w-full object-cover"
+            />
+          </div>
           <div className="hidden flex-col sm:flex">
             <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#122230]">
-              Premier
+              Riviera House
             </span>
             <span className="text-[8px] font-bold uppercase tracking-[0.16em] text-[#2e506d]">
-              Pools & Gardens
+              and Grounds
             </span>
           </div>
         </Link>
@@ -217,8 +265,8 @@ export default function Home() {
             Your property, our priority
           </p>
           <h1 className="mt-4 font-serif text-3xl font-normal leading-[1.08] tracking-tight text-white drop-shadow-lg sm:text-6xl md:text-7xl lg:max-w-4xl">
-            Complete Property Care <br className="hidden sm:inline" />
-            on the Côte d’Azur
+            <span className="block font-light tracking-normal text-white/95 text-2xl sm:text-4xl md:text-5xl mb-1 uppercase tracking-[0.12em]">Complete Care for Exceptional Properties</span>
+            <span className="italic font-light tracking-wide text-[#d4efff]">on the Côte d’Azur</span>
           </h1>
 
           <div className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs font-extrabold uppercase tracking-[0.18em] text-[#b6e1fc] drop-shadow-md md:justify-start">
@@ -231,8 +279,8 @@ export default function Home() {
             <span>Security</span>
           </div>
 
-          <p className="mt-3 text-xs sm:text-sm font-bold text-white/90 drop-shadow">
-            Year-round care for villas, second homes and primary residences.
+          <p className="mt-4 text-xs sm:text-sm font-light tracking-wide text-white/95 drop-shadow max-w-xl">
+            Year-round care for villas and second homes.
           </p>
 
           <div className="mt-6">
@@ -246,7 +294,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* HERO ICON BAR (4 items, luxury modern look without emojis, positioned lower) */}
+        {/* HERO ICON BAR */}
         <div className="relative z-10 mx-auto mt-16 mb-2 grid w-full max-w-7xl grid-cols-4 gap-1.5 sm:gap-6 rounded-2xl bg-white/90 px-3 py-4 sm:px-6 sm:py-5 text-[#122230] backdrop-blur-md shadow-2xl border border-white/60">
           <div className="flex flex-col items-center justify-center text-center px-1">
             <span className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-[#122230]">Pool Care</span>
@@ -263,26 +311,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* MORE THAN MAINTENANCE */}
+      {/* ONE TRUSTED POINT OF CONTACT FOR YOUR PROPERTY */}
       <section id="why-choose-us" className="bg-[#e4edf4] px-6 py-20 text-[#122230] md:px-12 md:py-28 border-t border-[#cce0ee]">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
           <div className="overflow-hidden rounded-3xl shadow-xl border border-[#b8d4e9]">
             <img
               src="/beautifulpool.jpg"
-              alt="Beautiful property and olive tree landscape"
+              alt="Beautiful property and landscape"
               className="h-[400px] w-full object-cover md:h-[500px]"
             />
           </div>
 
           <div>
             <p className="text-[9px] font-extrabold uppercase tracking-[0.25em] text-[#345d7e]">
-              More than maintenance
+              Complete Peace of Mind
             </p>
             <h2 className="mt-3 font-serif text-3xl font-normal leading-tight md:text-5xl text-[#0f1d2b]">
-              A Complete Service for a Beautifully Cared for Property
+              One Trusted Point of Contact for Your Property
             </h2>
             <p className="mt-6 text-sm leading-relaxed text-[#2a455c]">
-              We provide a personalised, reliable and discreet property care service across the Côte d’Azur, ensuring your home, garden and pool are always in perfect condition — whether you are in residence or away.
+              From the pool and gardens to regular property inspections, keyholding and ongoing oversight, we provide complete year-round care for villas and second homes across the Côte d’Azur. Every property is different. Our annual care plans are individually tailored around your home, grounds and requirements — giving you complete confidence that everything is being looked after, whether you're in residence or thousands of miles away.
             </p>
 
             <div className="mt-8">
@@ -290,75 +338,15 @@ export default function Home() {
                 href="/enquire"
                 className="inline-flex items-center gap-3 rounded-full bg-[#0f1d2b] px-8 py-4 text-[10px] font-extrabold uppercase tracking-[0.2em] text-white transition-transform hover:scale-105 shadow-md"
               >
-                Find out more
+                Request a property assessment
                 <span>→</span>
               </Link>
-            </div>
-          </div>
-
-          {/* CHECKLIST HIGHLIGHTS */}
-          <div className="lg:col-span-2 grid gap-4 rounded-3xl bg-[#d2e4f2] p-6 md:p-8 sm:grid-cols-2 lg:grid-cols-4 border border-[#b8d4e9]">
-            <div className="flex items-start gap-3">
-              <span className="text-[#345d7e] font-bold">✓</span>
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#0f1d2b]">Regular property inspections</h4>
-                <p className="text-[11px] text-[#345d7e] mt-1">Detailed checks inside and out.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-[#345d7e] font-bold">✓</span>
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#0f1d2b]">Pool maintenance & water management</h4>
-                <p className="text-[11px] text-[#345d7e] mt-1">Crystal clear balancing year-round.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-[#345d7e] font-bold">✓</span>
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#0f1d2b]">Garden & grounds care</h4>
-                <p className="text-[11px] text-[#345d7e] mt-1">Pruning, lawn care and landscaping.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-[#345d7e] font-bold">✓</span>
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#0f1d2b]">Keyholding & security checks</h4>
-                <p className="text-[11px] text-[#345d7e] mt-1">Secure local oversight and response.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-[#345d7e] font-bold">✓</span>
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#0f1d2b]">Pre-arrival & departure preparation</h4>
-                <p className="text-[11px] text-[#345d7e] mt-1">Your home ready the moment you land.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-[#345d7e] font-bold">✓</span>
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#0f1d2b]">Storm & weather checks</h4>
-                <p className="text-[11px] text-[#345d7e] mt-1">Immediate post-storm inspections.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-[#345d7e] font-bold">✓</span>
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#0f1d2b]">Contractor access & supervision</h4>
-                <p className="text-[11px] text-[#345d7e] mt-1">Managing local trades on-site.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-[#345d7e] font-bold">✓</span>
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#0f1d2b]">Photographic reports</h4>
-                <p className="text-[11px] text-[#345d7e] mt-1">Transparent updates sent directly.</p>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* OUR SERVICES CARDS */}
+      {/* OUR SERVICES CARDS - Property Care Visually Most Important (First) */}
       <section id="services" className="bg-[#d7e7f4] px-6 py-20 text-[#122230] md:px-12 md:py-28 border-t border-[#b8d4e9]/60">
         <div className="mx-auto max-w-7xl">
           <p className="text-center text-[9px] font-extrabold uppercase tracking-[0.25em] text-[#345d7e]">
@@ -369,7 +357,37 @@ export default function Home() {
           </h2>
 
           <div className="mt-12 grid gap-8 lg:grid-cols-3">
-            {/* CARD 1 */}
+            {/* PROPERTY CARE (HERO SERVICE - FIRST CARD) */}
+            <div className="group relative overflow-hidden rounded-3xl bg-[#c5def2] border-2 border-[#345d7e] flex flex-col justify-between shadow-lg lg:-translate-y-2">
+              <div className="absolute top-4 right-4 z-20 rounded-full bg-[#0f1d2b] px-3 py-1 text-[9px] font-extrabold uppercase tracking-[0.15em] text-white">
+                Core Service
+              </div>
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src="/aboutme2.jpg"
+                  alt="Property Care"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#c5def2] via-transparent to-transparent" />
+              </div>
+              <div className="p-8 flex flex-col justify-between flex-grow">
+                <div>
+                  <h3 className="text-2xl font-bold tracking-tight text-[#0f1d2b]">PROPERTY CARE</h3>
+                  <p className="mt-1 text-xs font-bold uppercase tracking-wider text-[#345d7e]">
+                    Complete oversight. Wherever you are.
+                  </p>
+                  <p className="mt-3 text-sm text-[#274358]">
+                    Scheduled property inspections, keyholding, security checks, weather checks, contractor access, pre-arrival preparation and photographic reporting.
+                  </p>
+                </div>
+                <div className="mt-8 pt-4 border-t border-[#0f1d2b]/10 flex items-center justify-between">
+                  <Link href="/enquire" className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#345d7e]">Learn more</Link>
+                  <span className="text-lg text-[#0f1d2b]">→</span>
+                </div>
+              </div>
+            </div>
+
+            {/* POOL CARE */}
             <div className="group relative overflow-hidden rounded-3xl bg-[#c5def2] border border-[#a6cceb] flex flex-col justify-between shadow-sm">
               <div className="relative h-64 overflow-hidden">
                 <img
@@ -381,9 +399,12 @@ export default function Home() {
               </div>
               <div className="p-8 flex flex-col justify-between flex-grow">
                 <div>
-                  <h3 className="text-2xl font-bold tracking-tight text-[#0f1d2b]">Pool Care</h3>
-                  <p className="mt-2 text-sm text-[#274358]">
-                    Crystal clear. All year round. Complete chemical balancing, cleaning, equipment monitoring, and winterisation.
+                  <h3 className="text-2xl font-bold tracking-tight text-[#0f1d2b]">POOL CARE</h3>
+                  <p className="mt-1 text-xs font-bold uppercase tracking-wider text-[#345d7e]">
+                    Immaculate, professionally maintained pools throughout the year.
+                  </p>
+                  <p className="mt-3 text-sm text-[#274358]">
+                    Routine cleaning, water testing and balancing, filtration and equipment monitoring, seasonal preparation and problem diagnosis.
                   </p>
                 </div>
                 <div className="mt-8 pt-4 border-t border-[#0f1d2b]/10 flex items-center justify-between">
@@ -393,21 +414,24 @@ export default function Home() {
               </div>
             </div>
 
-            {/* CARD 2 */}
+            {/* GARDEN & GROUNDS */}
             <div className="group relative overflow-hidden rounded-3xl bg-[#c5def2] border border-[#a6cceb] flex flex-col justify-between shadow-sm">
               <div className="relative h-64 overflow-hidden">
                 <img
                   src="/gardenservices.jpg.webp"
-                  alt="Garden Maintenance"
+                  alt="Garden & Grounds"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#c5def2] via-transparent to-transparent" />
               </div>
               <div className="p-8 flex flex-col justify-between flex-grow">
                 <div>
-                  <h3 className="text-2xl font-bold tracking-tight text-[#0f1d2b]">Garden Maintenance</h3>
-                  <p className="mt-2 text-sm text-[#274358]">
-                    Beautiful, healthy outdoor spaces. Lawn care, pruning, hedge trimming, irrigation management, and seasonal planting.
+                  <h3 className="text-2xl font-bold tracking-tight text-[#0f1d2b]">GARDEN & GROUNDS</h3>
+                  <p className="mt-1 text-xs font-bold uppercase tracking-wider text-[#345d7e]">
+                    Beautiful outdoor spaces, cared for throughout the seasons.
+                  </p>
+                  <p className="mt-3 text-sm text-[#274358]">
+                    Lawns, pruning, hedges, planting, irrigation monitoring, seasonal maintenance and complete grounds care.
                   </p>
                 </div>
                 <div className="mt-8 pt-4 border-t border-[#0f1d2b]/10 flex items-center justify-between">
@@ -416,30 +440,31 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* CARD 3 */}
-            <div className="group relative overflow-hidden rounded-3xl bg-[#c5def2] border border-[#a6cceb] flex flex-col justify-between shadow-sm">
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src="/aboutme2.jpg"
-                  alt="Property Care"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#c5def2] via-transparent to-transparent" />
-              </div>
-              <div className="p-8 flex flex-col justify-between flex-grow">
-                <div>
-                  <h3 className="text-2xl font-bold tracking-tight text-[#0f1d2b]">Property Care</h3>
-                  <p className="mt-2 text-sm text-[#274358]">
-                    Security, management and total peace of mind. Regular physical inspections, storm checks, and concierge oversight.
-                  </p>
-                </div>
-                <div className="mt-8 pt-4 border-t border-[#0f1d2b]/10 flex items-center justify-between">
-                  <Link href="/enquire" className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#345d7e]">Learn more</Link>
-                  <span className="text-lg text-[#0f1d2b]">→</span>
-                </div>
-              </div>
-            </div>
+      {/* BESPOKE ANNUAL PROPERTY CARE SECTION */}
+      <section className="bg-[#e9f2f8] px-6 py-20 text-[#122230] md:px-12 md:py-24 border-t border-[#cce0ee]">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="text-[9px] font-extrabold uppercase tracking-[0.25em] text-[#345d7e]">
+            Tailored Solutions
+          </p>
+          <h2 className="mt-3 font-serif text-3xl font-normal md:text-4xl text-[#0f1d2b]">
+            Bespoke Annual Property Care
+          </h2>
+          <p className="mt-4 text-sm text-[#2a455c] max-w-2xl mx-auto leading-relaxed">
+            Every care plan is individually prepared following an initial property assessment. Contractor Access • Regular Reporting • Tailored annual plans • Paid monthly
+          </p>
+
+          <div className="mt-8">
+            <Link
+              href="/enquire"
+              className="inline-flex items-center gap-3 rounded-full bg-[#0f1d2b] px-8 py-4 text-[10px] font-extrabold uppercase tracking-[0.2em] text-white transition-transform hover:scale-105 shadow-md"
+            >
+              Request a property assessment
+              <span>→</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -535,7 +560,7 @@ export default function Home() {
               href="/enquire"
               className="inline-flex items-center gap-3 rounded-full bg-[#0f1d2b] px-8 py-4 text-xs font-extrabold uppercase tracking-[0.2em] text-white transition-transform hover:scale-105 shadow-xl"
             >
-              Enquire Now
+              Request a property assessment
               <span>→</span>
             </Link>
           </div>
@@ -546,13 +571,15 @@ export default function Home() {
       <footer className="bg-[#0f1d2b] px-6 py-12 text-white md:px-12 border-t border-[#192f44]">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-3">
-            <img
-              src="/logo.png"
-              alt="Premier Pools & Gardens"
-              className="h-8 w-auto object-contain brightness-0 invert"
-            />
+            <div className="overflow-hidden rounded-full h-8 w-8 flex items-center justify-center bg-white/10 border border-white/20 shrink-0">
+              <img
+                src="/newlogoriviera.jpg"
+                alt="Riviera House and Grounds"
+                className="h-full w-full object-cover"
+              />
+            </div>
             <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-white/80">
-              Premier Pools & Gardens
+              Riviera House and Grounds
             </span>
           </div>
 
@@ -589,6 +616,17 @@ export default function Home() {
               </svg>
             </a>
             <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-sm text-white transition-all hover:bg-white/15 hover:border-white/40 shadow-sm"
+            >
+              <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <a
               href="mailto:info@example.com"
               aria-label="Email"
               className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-sm text-white transition-all hover:bg-white/15 hover:border-white/40 shadow-sm"
@@ -601,7 +639,7 @@ export default function Home() {
         </div>
 
         <div className="mx-auto mt-12 max-w-7xl border-t border-white/10 pt-6 text-center md:flex md:justify-between text-[10px] uppercase tracking-[0.15em] text-white/40">
-          <p>© {new Date().getFullYear()} Premier Pools & Gardens. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Riviera House and Grounds. All rights reserved.</p>
           <p className="mt-2 md:mt-0">Properties cared for, so you can enjoy them.</p>
         </div>
       </footer>
