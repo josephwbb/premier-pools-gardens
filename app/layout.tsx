@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -18,11 +19,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Riviera House and Grounds",
     description: "Pool and Garden maintenance across the Côte d’Azur",
-    url: "https://yourwebsite.com",
+    url: "https://rivierahouseandgrounds.com",
     siteName: "Riviera House and Grounds",
     images: [
       {
-        url: "https://yourwebsite.com/beautifulpool.jpg",
+        url: "https://rivierahouseandgrounds.com/beautifulpool.jpg",
         width: 1200,
         height: 630,
         alt: "Riviera House and Grounds Pool and Garden",
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Riviera House and Grounds",
     description: "Pool and Garden maintenance across the Côte d’Azur",
-    images: ["https://yourwebsite.com/beautifulpool.jpg"],
+    images: ["https://rivierahouseandgrounds.com/beautifulpool.jpg"],
   },
 };
 
